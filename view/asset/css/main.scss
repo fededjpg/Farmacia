@@ -1,0 +1,38 @@
+.foot{
+    background-color: rgba(226, 226, 226, 0.507);
+    border-top-left-radius: 50px;
+    border-top-right-radius: 50px;
+  
+    p{
+        height: 40px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-bottom: 0;
+        
+    }
+}
+
+.container{
+    ul{
+        list-style: none;
+        display: flex;
+        flex-direction: row;
+    }
+    li{
+        padding-left: 20px; 
+        
+    }
+    i{
+        color: blue;
+    }
+    img{
+        text-align: center;
+    }
+}
+
+div{
+.fa-file-export{
+    color: #fff;
+}
+}
