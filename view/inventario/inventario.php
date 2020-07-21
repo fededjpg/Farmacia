@@ -4,7 +4,12 @@
 
 
 <div class="container mt-2">
-<a href="<?=base_url?>inventario/exportar" class="btn btn-primary">Exportar Pdf<i class=" ml-1 far fa-file-pdf"></i></a>
+    <form action="<?=base_url?>inventario/exportar" method="post">
+        <input type="date" name="" id="">
+        <input type="date" name="" id="">
+    <button class="btn btn-primary"> Exportar Pdf <i class=" ml-1 far fa-file-pdf"></i></button>
+    <!-- <a href="<?=base_url?>inventario/exportar" class="btn btn-primary">Exportar <i class=" ml-1 far fa-file-pdf"></i></a> -->
+</form>
 </div>
 
 <div class="scroll">

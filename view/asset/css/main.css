@@ -1,6 +1,25 @@
+/* .form-control{
+  width: 500px;
+}
+form label{
+display: flex;
+} */
+.form-center{
+  display: flex;
+  justify-content: center;
+}
+.form-center  .form-control{
+  width: 350px;
+}
 .container .fa-file-pdf{
   color: #fff;
   background: radial-gradient(circle at 30% 107%, #ff0000 0%, #ff0000 5%, #ff0000 45%, #ff0000 60%, #ff0000 90%);
+}
+.aver{
+
+  padding: 0;
+  margin: 0;
+  height: 50px;
 }
 .scroll{
   overflow: scroll;

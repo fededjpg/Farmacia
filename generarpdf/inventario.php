@@ -5,77 +5,42 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
-
 <style>
-    /* Estilos de etiqueta*/
-body {
-    background-color: #CCBBEE;
+  *{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
   }
-  
-  table {
-    background: white;
-    width: 50%;
-    margin: 0 auto;
-    margin-top: 2%;
-    border-collapse: collapse;
-    text-align: center;
-  }
-  
-  th {
-    background-color: rgba(5, 5, 100, 95);
-    height: 35px;
-    border-bottom: 1px solid rgb(210, 220, 250);
-    color: rgb(120, 120, 120);
-  }
-  
-  td {
-    color: rgba(100, 100, 100, 60);
-    height: 30px;
-    border: 0.5px solid rgba(240, 240, 240, 10);
-  }
-  
-  tfoot {
-    font-weight: bold;
-  }
-  
-  /*Pseudo-clases*/
-  th:hover {
-    background-color: rgba(20, 20, 20, 90);
-  }
-  
-  tr:hover {
-    background-color: rgba(15, 25, 25, 90);
-  }
-  
-  /* Estililos de clases*/
-  .PrecioTotal:hover,
-  .CantidadTotal:hover {
-    color: rgb(230, 50, 50);
-  }
-  
-  .Cabecera {
-    background-color: rgba(5, 5, 100, 0.99);
-    border-radius: 4px;
-    height: 30px;
-    padding: 2em;
-    margin: 0 25%;
-    text-align: center;
-    color: white;
-  }
-  
-  a{
-    text-decoration: none;
-    color: white;
-    font-size: 14pt;
-  }
-  
-  footer {
-    margin-top: 40px;
-    text-align: center;
-  }
+  body {
+  margin: 0;
+  font-family: sans-serif;
+  color: #333; 
+}
+table{
+  border-collapse: collapse;
+
+}
+
+.container{
+  display: flex;
+  justify-content: center;
+}
+
+th{
+  background-color: #1A8CFF;
+  color: #fff;
+}
+.container .cosas{
+  width: 87px;
+  text-align: center;
+}
+.container .columna{
+  width: auto;
+}
 </style>
 <body>
-<table border="1">
+  <div class="container">
+<table border="1px">
     <thead> 
         <tr>
                 <th>Numero</th>
@@ -83,22 +48,27 @@ body {
                 <th>Gramos</th>
                 <th>Contenido Neto</th>
                 <th>Tipo</th>
-                <th>Stock</th>          
+                <th>Stock</th>     
+                <th> &nbsp; &nbsp; </th>     
+                <th> &nbsp; &nbsp; </th>
         </tr>
     </thead>
     <tbody>
     <?php while ($inventario=$inventarios->fetch_object()):?>
             <tr>
-            <td><?=$inventario->id_producto?></td>
-            <td><?=$inventario->descripcion?></td>
-            <td><?=$inventario->gramos?></td>
-            <td><?=$inventario->contenido?></td>
-            <td><?=$inventario->tipo?></td>
-            <td><?=$inventario->stock?></td>        
+            <td class="cosas"><?=$inventario->id_producto?></td>
+            <td class="cosas columna"><?=$inventario->descripcion?></td>
+            <td class="cosas"><?=$inventario->gramos?></td>
+            <td class="cosas"><?=$inventario->contenido?></td>
+            <td class="cosas"><?=$inventario->tipo?></td>
+            <td class="cosas"><?=$inventario->stock?></td>
+            <td class="cosas"></td>        
+            <td class="cosas"></td>
             </tr>
            <?php endwhile; ?>
     </tbody>
 </table>
+</div>
 
 </body>
 </html>

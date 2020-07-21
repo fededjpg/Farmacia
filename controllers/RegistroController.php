@@ -20,14 +20,35 @@ class RegistroController{
         $tipo=$_POST['tipo'];
         $precio=$_POST['precio'];
 
+        $fecha=$_POST['fecha'];
+        $entrada=$_POST['entrada'];
+
         $producto->setIdProducto($clave);
         $producto->setDescription($descripcion);
         $producto->setGramos($gramos);
         $producto->setContenido($contenido);
         $producto->setTipo($tipo);
         $producto->setPrecio($precio);
+
+        $producto->setFecha($fecha);
+        $producto->setEntrada($entrada);
         
-        $producto->insertProducto();
+        $insertar=$producto->insertProducto();
+        // var_dump($insertar);
+        // die();
+        if($insertar){
+            header("Location". base_url. "registro/index");
+        }
+
+     }
+
+     public function actualizar(){
+
+         $id=$_GET['id'];
+         $producto = new Producto();
+         $producto->setIdProducto($id);
+        $productos=$producto->getOneProduct();
+         require_once 'view/registro/actualizar.php';
      }
 
 }

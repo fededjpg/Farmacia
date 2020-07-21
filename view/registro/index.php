@@ -11,7 +11,7 @@
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">Agregar Nuevo Medicamento</h5>
+          <h5 class= "modal-title" id="exampleModalLabel">Agregar Nuevo Medicamento</h5>
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
@@ -42,6 +42,14 @@
               <label for="message-text" class="col-form-label">Precio:</label>
               <input type="text" name="precio" id="precio" class="form-control">
             </div>
+            <div class="form-group">
+              <label for="message-text" class="col-form-label">Entrada Inicial:</label>
+              <input type="text" name="entrada" id="entrada" class="form-control">
+            </div>
+            <div class="form-group">
+              <label for="message-text" class="col-form-label">Fecha Entrada:</label>
+              <input type="text" name="fecha" id="fecha" class="form-control">
+            </div>
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-outline-secondary" data-dismiss="modal">Cancelar</button>
@@ -62,7 +70,7 @@
           <th>Clave</th>
           <th>Descripción</th>
           <th>Gramage</th>
-          <th>Cantidad</th>
+          <th>Contenido</th>
           <th>Precio</th>
           <th>Tipo</th>
           <th>Acciones</th>
@@ -78,7 +86,8 @@
           <td><?=$producto->contenido?></td>
           <td><?=$producto->tipo?></td>
           <td><?=$producto->precio?></td>
-          <td><i class="far fa-edit"></i></td>
+          
+          <td><a href="<?=base_url?>registro/actualizar&id=<?=$producto->id_producto?>"><i class="far fa-edit"></i></a></td>
         </tr>
 
       <?php endwhile;?>

@@ -7,6 +7,8 @@ class Producto{
     public $contenido;
     public $tipo;
     public $precio;
+    public $fecha;
+    public $entrada;
     private $db;
 
     public function __construct() {
@@ -31,6 +33,12 @@ class Producto{
     public function getPrecio(){
         return $this->precio;
     }
+    public function getFecha(){
+        return $this->fecha;
+    }
+    public function getEntrada(){
+        return $this->entrada;
+    }
 
     public function setIdProducto($id_producto){
         return $this->id_producto=$id_producto;
@@ -52,6 +60,12 @@ class Producto{
     public function setPrecio($precio){
         return $this->precio=$precio;
     }
+    public function setFecha($fecha){
+        return $this->fecha=$fecha;
+    }
+    public function setEntrada($entrada){
+        return $this->entrada=$entrada;
+    }
 
 
     public function showAllProducts(){
@@ -61,13 +75,26 @@ class Producto{
     }
 
     public function insertProducto(){
-        $insert = "INSERT INTO productos VALUES ('{$this->getIdProducto()}','{$this->getDescription()}',
-        '{$this->getGramos()}','{$this->getContenido()}','{$this->getTipo()}','{$this->getPrecio()}')";
+        $insert = "INSERT INTO productos VALUES ({$this->getIdProducto()},'{$this->getDescription()}','{$this->getGramos()}','{$this->getContenido()}','{$this->getTipo()}','{$this->getPrecio()}')";
 
-        $resultado = $this->db->query($insert);
+        $insertt = "INSERT INTO entradas VALUES (NULL,{$this->getIdProducto()},'{$this->getFecha()}','{$this->getEntrada()}')";
         
+        // var_dump($insert);
+        // var_dump($insertt);
+        // die();
+        $resultado = $this->db->query($insert);
+        $resultadoo = $this->db->query($insertt);
+
         return $resultado;
+        return $resultadoo;
        }
+
+    public function getOneProduct(){
+    $consult = "SELECT * FROM productos WHERE id_producto = '{$this->getIdProducto()}'";
+    $consulta = $this->db->query($consult);
+
+    return $consulta;
+    }
    
 
 }

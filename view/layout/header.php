@@ -10,7 +10,6 @@
    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.21/css/dataTables.bootstrap4.min.css">
 </head>
 <body>
-
 <!-- navbar -->
 <nav class="navbar navbar-dark bg-primary navbar-expand-sm sticky-top letras">
 <a class="navbar-brand" href="#">
