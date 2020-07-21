@@ -1,28 +1,9 @@
-$(document).ready(function () {
+$(document).ready(function() {
+    $('#example').DataTable( {
+        "lengthMenu": [[5, 10, 25, 50, -1], [5, 10, 25, 50, "All"]]
+    } );
 
-    // alert("hola perro");
 
-    $('#example').DataTable();
-
-    $('#add').click(function(){
-        
-    });
 
     
-    $("#elimina").click(function(){
-        $(this).val();
-        console.log($(this));
-    })
- 
-
-    // $('#delete').click(function (e) { 
-    //     e.preventDefault();
-    //     alert($(".checke").val());
-    // });
-
-    // $('#options').click(function (e) { 
-    //     e.preventDefault();
-        
-    // });
-
-});
+} );

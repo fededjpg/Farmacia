@@ -11,34 +11,44 @@
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Agregar Nuevo Medicamento</h5>
+        <h5 class="modal-title" id="exampleModalLabel">Agregar una Nueva Entrada</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
       <div class="modal-body">
-        <form>
+        <form method="post" action="<?=base_url?>entrada/insertEntra" >
+          <div class="form-group">
+            <label for="recipient-name" class="col-form-label">Clave:</label>
+            <input type="text" class="form-control" id="name" name="clave">
+          </div>
+          
           <div class="form-group">
             <label for="recipient-name" class="col-form-label">Nombre:</label>
-            <input type="text" class="form-control" id="name">
+            <input type="text" class="form-control" id="name" name="">
           </div>
           <div class="form-group">
-            <label for="recipient-name" class="col-form-label">Fecha</label>
-            <input type="date" class="form-control" id="date">
+            <label for="message-text" class="col-form-label">Gramaje:</label>
+            <input type="text" name="gramos" id="prime" class="form-control">
+          </div>
+       
+          <div class="form-group">
+            <label for="message-text" class="col-form-label">Tipo:</label>
+            <input type="text" name="tipo" id="prime" class="form-control">
           </div>
           <div class="form-group">
-            <label for="recipient-name" class="col-form-label">Nombre:</label>
-            <input type="text" class="form-control" id="name">
+            <label for="recipient-name" class="col-form-label">Fecha de Registro</label>
+            <input type="text" class="form-control" id="date" name="fecha" value="<?=date('Y-m-d')?>">
           </div>
           <div class="form-group">
-            <label for="message-text" class="col-form-label">Precio:</label>
-            <input type="text" name="price" id="prime" class="form-control">
+            <label for="message-text" class="col-form-label">Entradas:</label>
+            <input type="text" name="entradas" id="prime" class="form-control">
           </div>
-        </form>
-      </div>
+          <button type="submit" class="btn btn-primary">Agregar</button>
+
+          </form>
       <div class="modal-footer">
         <button type="button" class="btn btn-outline-secondary" data-dismiss="modal">Cancelar</button>
-        <button type="button" class="btn btn-primary">Agregar</button>
       </div>
     </div>
   </div>
@@ -47,7 +57,7 @@
 
 
 <!-- data table table-dark table-sm-->
-
+<div class="scroll">
 <section class="container">
 <div class="table-responsive">
 <table id="example" class="table table-hover table-striped navbar-expand-sm table-bordered" style="width:100%">
@@ -55,6 +65,9 @@
             <tr>
                 <th>Numero</th>
                 <th>Producto</th>
+                <th>Gramos</th>
+                <th>Contenido Neto</th>
+                <th>Tipo</th>
                 <th>Fecha Entrada</th>
                 <th>Entradas</th>
                 <th>Acciones</th>
@@ -65,6 +78,9 @@
             <tr>
             <td><?=$entrada->id_producto?></td>
             <td><?=$entrada->descripcion?></td>
+            <td><?=$entrada->gramos?></td>
+            <td><?=$entrada->contenido?></td>
+            <td><?=$entrada->tipo?></td>
             <td><?=$entrada->fecha_registro?></td>
             <td><?=$entrada->entradas?></td>
             <td>
@@ -77,7 +93,7 @@
     </table>
 </div>
 </section>
-
+</div>
 
 <!-- modal update entradas  -->
 <section class="container">

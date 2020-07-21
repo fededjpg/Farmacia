@@ -1,9 +1,26 @@
-.foot {
+.container .fa-file-pdf{
+  color: #fff;
+  background: radial-gradient(circle at 30% 107%, #ff0000 0%, #ff0000 5%, #ff0000 45%, #ff0000 60%, #ff0000 90%);
+}
+.scroll{
+  overflow: scroll;
+  height: 400px;
+}
+.general{
+  height: 100vh;
+}
+.navbar-collapse{
+  color: #fff;
+}
+
+.foot{
+  clear: both;
   background-color: rgba(226, 226, 226, 0.507);
   border-top-left-radius: 50px;
   border-top-right-radius: 50px;
 }
 .foot p {
+  clear: both;
   height: 40px;
   display: flex;
   justify-content: center;

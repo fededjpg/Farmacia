@@ -17,47 +17,43 @@
           </button>
         </div>
         <div class="modal-body">
-          <form>
+          <form method="post" action="<?=base_url?>registro/insertProduct" >
             <div class="form-group">
               <label for="recipient-name" class="col-form-label">Clave:</label>
-              <input type="text" class="form-control" id="name">
+              <input type="text" class="form-control" id="clave" name="clave">
             </div>
             <div class="form-group">
               <label for="recipient-name" class="col-form-label">Nombre:</label>
-              <input type="date" class="form-control" id="date">
+              <input type="text" class="form-control" id="descripcion" name="descripcion">
             </div>
             <div class="form-group">
               <label for="recipient-name" class="col-form-label">Gramaje:</label>
-              <input type="text" class="form-control" id="name">
+              <input type="text" class="form-control" id="gramos" name="gramos">
             </div>
             <div class="form-group">
-              <label for="message-text" class="col-form-label">Cantidad:</label>
-              <input type="text" name="price" id="prime" class="form-control">
+              <label for="message-text" class="col-form-label">Contenido:</label>
+              <input type="text" name="contenido" id="contenido" class="form-control">
+            </div>
+            <div class="form-group">
+              <label for="message-text" class="col-form-label">Tipo:</label>
+              <input type="text" name="tipo" id="tipo" class="form-control">
             </div>
             <div class="form-group">
               <label for="message-text" class="col-form-label">Precio:</label>
-              <input type="text" name="price" id="prime" class="form-control">
+              <input type="text" name="precio" id="precio" class="form-control">
             </div>
-            <div class="form-group">
-              <label for="message-text" class="col-form-label">Fecha de Registro:</label>
-              <input type="text" name="price" id="prime" class="form-control">
-            </div>
-            <div class="form-group">
-              <label for="message-text" class="col-form-label">Entrada:</label>
-              <input type="text" name="price" id="prime" class="form-control">
-            </div>
-          </form>
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-outline-secondary" data-dismiss="modal">Cancelar</button>
-          <button type="button" class="btn btn-primary">Agregar</button>
+          <button type="submit" class="btn btn-primary">Agregar</button>
         </div>
+        </form>
       </div>
     </div>
   </div>
 </section>
 
-
+<div class="scroll">
 <section class="container">
   <div class="table-responsive">
     <table id="example" class="table table-hover table-striped navbar-expand-sm table-bordered" style="width:100%">
@@ -90,4 +86,5 @@
     </table>
   </div>
 </section>
+</div>
 <?php require_once 'view/layout/footer.php'; ?>

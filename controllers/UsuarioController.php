@@ -8,5 +8,3 @@ class UsuarioController{
         $usuario->setNombre('federico');
     }
 }
-
-?>

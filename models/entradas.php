@@ -3,9 +3,13 @@ class Entrada{
 
     public $id;
     public $id_producto;
+    public $gramos;
+    public $contenido;
+    public $tipo;
     public $fecha_registro;
     public $entradas;
     private $db;
+
 
     public function __construct() {
 		$this->db = Database::connect();
@@ -16,12 +20,41 @@ class Entrada{
         return $this->id;
     }
 
-
     public function setId($id)
     {
         return $this->id = $id;
     }
 
+    public function setGramos($gramos)
+    {
+        return $this->gramos = $gramos;
+    }
+
+    public function getGramos()
+    {
+        return $this->gramos;
+    }
+
+    
+    public function setContenidos($contenido)
+    {
+        return $this->contenido = $contenido;
+    }
+
+    public function getContenido()
+    {
+        return $this->contenido;
+    }
+
+    public function setTipo($tipo)
+    {
+        return $this->tipo = $tipo;
+    }
+
+    public function getTipo()
+    {
+        return $this->tipo;
+    }
 
     public function getId_producto()
     {
@@ -58,12 +91,26 @@ class Entrada{
         return $this->entradas = $entradas;
     }
 
+    
 
     public function showAllEntradas(){
-        $consult = "SELECT e.id_producto, p.descripcion, e.fecha_registro, e.entradas  FROM entradas e INNER JOIN productos p ON p.id_producto= e.id_producto";
+        $consult = "SELECT p.id_producto, p.descripcion, p.gramos, p.contenido, p.tipo,
+        e.fecha_registro, e.entradas  
+        FROM entradas e INNER JOIN productos p ON p.id_producto = e.id_producto";
         $resultado= $this->db->query($consult);
         return $resultado;
     }
+
+    public function insertEntrada(){
+     $insert = "INSERT INTO entradas VALUES (NULL,{$this->getId_producto()}, 
+     '{$this->getFecha_registro()}','{$this->getEntradas()}')";
+    // var_dump($insert);
+    // die();
+     $resultado = $this->db->query($insert);
+     
+     return $resultado;
+    }
+
 }
 
 

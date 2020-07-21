@@ -12,7 +12,7 @@
 <body>
 
 <!-- navbar -->
-<nav class="navbar navbar-light bg-light navbar-expand-sm sticky-top">
+<nav class="navbar navbar-dark bg-primary navbar-expand-sm sticky-top letras">
 <a class="navbar-brand" href="#">
 
     <!-- <img src="" width="30" height="30" alt="" loading="lazy"> -->
@@ -30,6 +30,9 @@
       </li>
       <li class="nav-item">
         <a class="nav-link" href="<?=base_url?>inventario/index">Inventario</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="<?=base_url?>cobrar/index">Cobrar</a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="<?=base_url?>registro/index">Resgistro de Productos</a>
@@ -55,5 +58,6 @@
         </div>
   </div>
 </nav>
+<div class="general">
 
 <!-- end header  -->

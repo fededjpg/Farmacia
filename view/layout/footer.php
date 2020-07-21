@@ -1,7 +1,13 @@
+</div>
 
-<footer class="foot">
+<footer id="sticky-footer" class="py-4 bg-dark text-white-50">
+    <div class="container text-center">
+      <small>Desarrollado Por &copy; ST-TUX <?= date('Y') ?></small>
+    </div>
+  </footer>
+<!-- <footer class="foot">
     <b><p>Desarrollado Por &copy; ST-TUX <?= date('Y') ?> </p><b>
-</footer>
+</footer> -->
 </body>
 <script src="<?=base_url?>js/sweetalert.min.js"></script>
 <script src="<?=base_url?>js/jquery-3.4.1.min.js"></script>

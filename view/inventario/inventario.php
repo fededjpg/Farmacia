@@ -4,92 +4,44 @@
 
 
 <div class="container mt-2">
-<button class="btn btn-primary">Exportar Pdf<i class=" ml-1 fas fa-file-export"></i></button>
+<a href="<?=base_url?>inventario/exportar" class="btn btn-primary">Exportar Pdf<i class=" ml-1 far fa-file-pdf"></i></a>
 </div>
 
-
+<div class="scroll">
 <section class="container">
 <div class="table-responsive">
 <table id="example" class="table table-hover table-striped navbar-expand-sm table-bordered" style="width:100%">
-        <thead>
+        <thead class="text-center">
             <tr>
-                <th>Clave</th>
-                <th>Numero</th>
-                <th>Existencia</th>
+            <th>Numero</th>
+                <th>Producto</th>
+                <th>Gramos</th>
+                <th>Contenido Neto</th>
+                <th>Tipo</th>
+                <th>Stock</th>          
                 <th></th>
                 <th></th>
 
             </tr>
         </thead>
-        <tbody>
+        <tbody class="text-center">
+           <?php while ($inventario=$inventarios->fetch_object()):?>
             <tr>
-                <td>Tiger Nixon</td>
-                <td>System Architect</td>
-                <td>Edinburgh</td>
-                <td></td>
-                <td></td>
-
+            <td><?=$inventario->id_producto?></td>
+            <td><?=$inventario->descripcion?></td>
+            <td><?=$inventario->gramos?></td>
+            <td><?=$inventario->contenido?></td>
+            <td><?=$inventario->tipo?></td>
+            <td><?=$inventario->stock?></td>
+            <td></td>
+            <td></td>
+        
             </tr>
-            <tr>
-                <td>Garrett Winters</td>
-                <td>Accountant</td>
-                <td>Tokyo</td>
-                <td></td>
-                <td></td>
-
-            </tr>
-            <tr>
-                <td>Ashton Cox</td>
-                <td>Junior Technical Author</td>
-                <td>San Francisco</td>
-                <td></td>
-                <td></td>
-
-            </tr>
-            <tr>
-                <td>Cedric Kelly</td>
-                <td>Senior Javascript Developer</td>
-                <td>Edinburgh</td>
-                <td></td>
-                <td></td>
-
-            </tr>
-            <tr>
-                <td>Airi Satou</td>
-                <td>Accountant</td>
-                <td>Tokyo</td>
-                <td></td>
-                <td></td>
-
-            </tr>
-            <tr>
-                <td>Brielle Williamson</td>
-                <td>Integration Specialist</td>
-                <td>New York</td>
-                <td></td>
-                <td></td>
-
-            </tr>
-            <tr>
-                <td>Herrod Chandler</td>
-                <td>Sales Assistant</td>
-                <td>San Francisco</td>
-                <td></td>
-                <td></td>
-
-            </tr>
-            <tr>
-                <td>Rhona Davidson</td>
-                <td>Integration Specialist</td>
-                <td>Tokyo</td>
-                <td></td>
-                <td></td>
-
-            </tr>
-
-        </tbody>
+           <?php endwhile; ?>
+        </tbody>  
     </table>
 </div>
 </section>
+</div>
 
 <?php require_once 'view/layout/footer.php';?>

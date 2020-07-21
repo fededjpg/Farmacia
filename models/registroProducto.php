@@ -60,6 +60,16 @@ class Producto{
         return $resultado;
     }
 
+    public function insertProducto(){
+        $insert = "INSERT INTO productos VALUES ('{$this->getIdProducto()}','{$this->getDescription()}',
+        '{$this->getGramos()}','{$this->getContenido()}','{$this->getTipo()}','{$this->getPrecio()}')";
+
+        $resultado = $this->db->query($insert);
+        
+        return $resultado;
+       }
+   
+
 }
 
 
