@@ -3,6 +3,7 @@ session_start();
 require_once 'autoload.php';
 require_once 'config/conexion.php';
 require_once 'config/parameters.php';
+require_once 'helper/destroy.php';
 
 // require_once 'view/asset/inicio.php';
 

@@ -75,18 +75,18 @@ class Producto{
     }
 
     public function insertProducto(){
-        $insert = "INSERT INTO productos VALUES ({$this->getIdProducto()},'{$this->getDescription()}','{$this->getGramos()}','{$this->getContenido()}','{$this->getTipo()}','{$this->getPrecio()}')";
+        $insertProduct = "INSERT INTO productos VALUES ({$this->getIdProducto()},'{$this->getDescription()}','{$this->getGramos()}','{$this->getContenido()}','{$this->getTipo()}','{$this->getPrecio()}')";
 
-        $insertt = "INSERT INTO entradas VALUES (NULL,{$this->getIdProducto()},'{$this->getFecha()}','{$this->getEntrada()}')";
+        $insertEntered = "INSERT INTO entradas VALUES (NULL,{$this->getIdProducto()},'{$this->getFecha()}','{$this->getEntrada()}')";
         
         // var_dump($insert);
         // var_dump($insertt);
         // die();
-        $resultado = $this->db->query($insert);
-        $resultadoo = $this->db->query($insertt);
+        $resultProduct = $this->db->query($insertProduct);
+        $resultEntered = $this->db->query($insertEntered);
 
-        return $resultado;
-        return $resultadoo;
+        return $resultProduct;
+        return $resultEntered;
        }
 
     public function getOneProduct(){

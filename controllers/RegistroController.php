@@ -33,12 +33,11 @@ class RegistroController{
         $producto->setFecha($fecha);
         $producto->setEntrada($entrada);
         
-        $insertar=$producto->insertProducto();
-        // var_dump($insertar);
-        // die();
-        if($insertar){
-            header("Location". base_url. "registro/index");
-        }
+        $producto->insertProducto();
+
+        header("Location:".base_url."registro/index");
+
+    
 
      }
 

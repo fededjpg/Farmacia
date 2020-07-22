@@ -1,37 +1,46 @@
 <?php require_once 'view/layout/header.php' ?>
-<div class="form-center">
-<?php while($producto = $productos->fetch_object()): ?>
-    <form method="POST" action="" class="needs-validation" novalidate>
-    <h1 class="aver text-align-center">Actualiza Producto <?=$producto->descripcion?> </h1>
-    <div class="form-row mt-5">
-        <div class="col-md-4 mb-3">
-            <label for="validarNombre">Clave:<span class="red">*</span></label>
-            <input type="text" class="form-control" value="<?=$producto->id_producto?>" name="validarNombre">
+
+<?php while ($producto = $productos->fetch_object()) : ?>
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-10 mt-4">
+                <div class="card">
+                    <div class="card-header"><h5 class="text-center">   Actualizar Medicamento <?= $producto->descripcion ?></h5></div>
+                    <div class="card-body">
+                        <form action="" method="post">
+                            <div class="form-group row">
+                                <label for="" class="col-md-3 text-md-right col-form-label">Número</label>
+                                <div class="col-md-6">
+                                    <input type="text" value="<?= $producto->id_producto ?>" class="form-control" required>
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+                                <label for="" class="col-md-3 text-md-right col-form-label">Nombre</label>
+                                <div class="col-md-6">
+                                    <input type="text" value="<?= $producto->descripcion ?>" class="form-control" placeholder="" aria-describedby="helpId">
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+                                <label for="" class="col-md-3 text-md-right col-form-label">Gramage</label>
+                                <div class="col-md-6">
+                                    <input type="text" value="<?= $producto->gramos ?>" class="form-control" placeholder="" aria-describedby="helpId">
+                                </div>
+                            </div>
+
+                            <div class="form-group col">
+                                <div class="text-md-center">
+                                <button type="button" class="btn btn-outline-secondary" data-dismiss="modal">Cancelar</button>
+                                <button type="submit" class="btn btn-primary">Actualizar</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
-    <div class="form-row">
-        <div class="col-md-4 mb-3">
-            <label for="Descripcion">Descripcion:<span class="red">*</span></label>
-            <input type="text" class="form-control" value="<?=$producto->descripcion?>">
-        </div>
-    </div>
-    <div class="form-row">
-        <div class="col-md-4 mb-3">
-            <label for="Gramaje">Gramaje:</label>
-            <input type="text" class="form-control" value="<?=$producto->gramos?>">
-        </div>
-    </div>
-
-
-    <div class="form-group mb-10">
-        <button class="btn btn-secundary" type="" name="submit">Cancelar</button>
-        <button class="btn btn-primary" type="submit" name="reset">Actualizar</button>
-    </div>
-
-</form>
-</div>
-
-
 
 <?php endwhile; ?>
 

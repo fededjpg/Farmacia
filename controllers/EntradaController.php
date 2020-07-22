@@ -20,6 +20,9 @@ class EntradaController{
         $Entrada->setEntradas($entradas);
         
         $Entrada->insertEntrada();
+
+        header("Location:".base_url."entrada/index");
+        $_SESSION['success']="Medicameto".$Entrada->getId_producto(). "registrado exitosamente";
      }
 }
 

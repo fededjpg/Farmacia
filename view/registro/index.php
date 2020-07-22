@@ -18,37 +18,45 @@
         </div>
         <div class="modal-body">
           <form method="post" action="<?=base_url?>registro/insertProduct" >
-            <div class="form-group">
+          <div class="row">
+            <div class="form-group col-md-6 col-sm-6 col-6">
               <label for="recipient-name" class="col-form-label">Clave:</label>
               <input type="text" class="form-control" id="clave" name="clave">
             </div>
-            <div class="form-group">
+            <div class="form-group col-md-6 col-sm-6 col-6">
               <label for="recipient-name" class="col-form-label">Nombre:</label>
               <input type="text" class="form-control" id="descripcion" name="descripcion">
             </div>
-            <div class="form-group">
+            </div>
+            <div class="row">
+            <div class="form-group col-md-6 col-sm-6 col-6">
               <label for="recipient-name" class="col-form-label">Gramaje:</label>
               <input type="text" class="form-control" id="gramos" name="gramos">
             </div>
-            <div class="form-group">
+            <div class="form-group col-md-6 col-sm-6 col-6">
               <label for="message-text" class="col-form-label">Contenido:</label>
               <input type="text" name="contenido" id="contenido" class="form-control">
             </div>
-            <div class="form-group">
+            </div>
+            <div class="row">
+            <div class="form-group col-md-6 col-sm-6 col-6">
               <label for="message-text" class="col-form-label">Tipo:</label>
               <input type="text" name="tipo" id="tipo" class="form-control">
             </div>
-            <div class="form-group">
+            <div class="form-group col-md-6 col-sm-6 col-6">
               <label for="message-text" class="col-form-label">Precio:</label>
               <input type="text" name="precio" id="precio" class="form-control">
             </div>
-            <div class="form-group">
+            </div>
+            <div class="row">
+            <div class="form-group col-md-6 col-sm-6 col-6">
               <label for="message-text" class="col-form-label">Entrada Inicial:</label>
               <input type="text" name="entrada" id="entrada" class="form-control">
             </div>
-            <div class="form-group">
+            <div class="form-group col-md-6 col-sm-6 col-6">
               <label for="message-text" class="col-form-label">Fecha Entrada:</label>
-              <input type="text" name="fecha" id="fecha" class="form-control">
+              <input type="date" name="fecha" id="fecha" class="form-control">
+            </div>
             </div>
         </div>
         <div class="modal-footer">
