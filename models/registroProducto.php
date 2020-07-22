@@ -7,6 +7,7 @@ class Producto{
     public $contenido;
     public $tipo;
     public $precio;
+    public $precio_proveedor;
     public $fecha;
     public $entrada;
     private $db;
@@ -40,6 +41,14 @@ class Producto{
         return $this->entrada;
     }
 
+    function getPrecioproveedor() { 
+        return $this->precio_proveedor; 
+   } 
+
+   function setPrecioproveedor($precio_proveedor) {  
+       $this->precio_proveedor = $precio_proveedor; 
+   } 
+
     public function setIdProducto($id_producto){
         return $this->id_producto=$id_producto;
     }
@@ -67,15 +76,15 @@ class Producto{
         return $this->entrada=$entrada;
     }
 
-
+/**visualixar todos lod productos en la tabla */
     public function showAllProducts(){
         $consult= "SELECT * FROM productos";
         $resultado= $this->db->query($consult);
         return $resultado;
     }
-
+/**insertar un producto */
     public function insertProducto(){
-        $insertProduct = "INSERT INTO productos VALUES ({$this->getIdProducto()},'{$this->getDescription()}','{$this->getGramos()}','{$this->getContenido()}','{$this->getTipo()}','{$this->getPrecio()}')";
+        $insertProduct = "INSERT INTO productos VALUES ({$this->getIdProducto()},'{$this->getDescription()}','{$this->getGramos()}','{$this->getContenido()}','{$this->getTipo()}','{$this->getPrecioproveedor()}','{$this->getPrecio()}')";
 
         $insertEntered = "INSERT INTO entradas VALUES (NULL,{$this->getIdProducto()},'{$this->getFecha()}','{$this->getEntrada()}')";
         
@@ -89,15 +98,35 @@ class Producto{
         return $resultEntered;
        }
 
+       /**para actualizar un producto */
     public function getOneProduct(){
     $consult = "SELECT * FROM productos WHERE id_producto = '{$this->getIdProducto()}'";
     $consulta = $this->db->query($consult);
 
     return $consulta;
     }
+    
+    public function  updateProduct(){
+        $update= "UPDATE productos SET descripcion ='{$this->getDescription()}', 
+        gramos='{$this->getGramos()}',
+        contenido='{$this->getContenido()}',        
+        precio_proveedor='{$this->getPrecioproveedor()}',
+        precio_publico = {$this->getPrecio()}, 
+        tipo='{$this->getTipo()}'
+        WHERE id_producto={$this->getIdProducto()}";
+
+        $resultupdate = $this->db->query($update);
+        
+        return $resultupdate;
+        
+              
+    }
    
 
 }
+
+
+	
 
 
 ?>

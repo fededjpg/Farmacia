@@ -84,7 +84,16 @@ class Inventario{
         group by p.id_producto";
         $resultado= $this->db->query($consult);
         return $resultado;
+        
 
+    }
+
+    public function export(){
+        // $consult = "SELECT p.id_producto, p.descripcion, p.gramos, p.contenido, p.tipo,
+        // e.fecha_registro, e.entradas, sum(e.entradas) as 'stock'  
+        // FROM entradas e INNER JOIN productos p ON p.id_producto = e.id_producto
+        // WHERE p.nombre LIKE '%{$this->getDescripcion()}' 
+        // group by p.id_producto"+
     }
    
 }

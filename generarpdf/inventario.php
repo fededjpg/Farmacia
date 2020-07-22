@@ -40,6 +40,7 @@ th{
 </style>
 <body>
   <div class="container">
+    <h1>Farmacias Guadalajara</h1>
 <table border="1px">
     <thead> 
         <tr>

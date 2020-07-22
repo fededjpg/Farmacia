@@ -13,13 +13,13 @@ class RegistroController{
     public function insertProduct(){
         $producto = new Producto();
         
-        $clave=$_POST['clave'];
+        $clave=$_POST['id_producto'];
         $descripcion=$_POST['descripcion'];
         $gramos=$_POST['gramos'];
         $contenido=$_POST['contenido'];
         $tipo=$_POST['tipo'];
-        $precio=$_POST['precio'];
-
+        $precio=$_POST['precio_publico'];
+        $precio_pro=$_POST['precio_proveedor'];
         $fecha=$_POST['fecha'];
         $entrada=$_POST['entrada'];
 
@@ -29,13 +29,15 @@ class RegistroController{
         $producto->setContenido($contenido);
         $producto->setTipo($tipo);
         $producto->setPrecio($precio);
-
+        $producto->setPrecioproveedor($precio_pro);
         $producto->setFecha($fecha);
         $producto->setEntrada($entrada);
         
         $producto->insertProducto();
 
         header("Location:".base_url."registro/index");
+
+        $_SESSION['success']="El producto ".$producto->getDescription() . " se agergo correctamente";
 
     
 
@@ -44,10 +46,42 @@ class RegistroController{
      public function actualizar(){
 
          $id=$_GET['id'];
+
          $producto = new Producto();
+         
          $producto->setIdProducto($id);
+
         $productos=$producto->getOneProduct();
-         require_once 'view/registro/actualizar.php';
+
+        require_once 'view/registro/actualizar.php';
      }
+
+     public function actualizarProducto(){
+        
+        $producto = new Producto();
+        
+        $clave=$_POST['id_producto'];
+        $descripcion=$_POST['descripcion'];
+        $gramos=$_POST['gramos'];
+        $contenido=$_POST['contenido'];
+        $tipo=$_POST['tipo'];
+        $precio=$_POST['precio_publico'];
+        $precio_pro=$_POST['precio_proveedor'];
+
+        $producto->setIdProducto($clave);
+        $producto->setDescription($descripcion);
+        $producto->setGramos($gramos);
+        $producto->setContenido($contenido);
+        $producto->setTipo($tipo);
+        $producto->setPrecio($precio);
+        $producto->setPrecioproveedor($precio_pro);
+        
+        $producto->updateProduct();
+
+        header("Location:".base_url."registro/index");
+
+        $_SESSION['success']="El producto ".$producto->getDescription() . " se actualizo correctamente";
+       require_once 'view/registro/actualizar.php';
+    }
 
 }

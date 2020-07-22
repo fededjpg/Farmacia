@@ -1,16 +1,18 @@
 <?php require_once 'view/layout/header.php'; ?>
-
-<h1 class="text-center">Entradas</h1>
-<?php if(isset($_SESSION['success'])):?>
-<div class="alert alert-success" role="alert">
-  <?=$_SESSION['success']?>
+<?php 
+if(isset($_SESSION['success'])):?>
+<div class="alert alert-success d-flex justify-content-center" role="alert">
+<?=$_SESSION['success']?>
 </div>
-<?php endif ?>
+<?php endif; ?>
 
 <?php 
-$elimina = new Destroy();
-$elimina->deleteSession('success');
+
+$destroy= new Destroy();
+$destroy->deleteSession('success');
+
 ?>
+<h1 class="text-center">Entradas</h1>
 <!-- modal -->
 <section class="container">
   <button type="button" class="btn btn-primary mt-2 mb-2" data-toggle="modal" data-target="#add-new-register" data-whatever="@mdo">AGREGAR</button>

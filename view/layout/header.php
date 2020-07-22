@@ -9,7 +9,7 @@
     <link rel="stylesheet" type="text/css" href="<?=base_url?>view/asset/fontawesome/css/all.min.css">   
    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.21/css/dataTables.bootstrap4.min.css">
 </head>
-<body>
+<body id="portada">
 <!-- navbar -->
 <nav class="navbar navbar-dark bg-primary navbar-expand-sm sticky-top letras">
 <a class="navbar-brand" href="#">
@@ -20,7 +20,7 @@
     <span class="navbar-toggler-icon"></span>
   </button>
   <div class="collapse navbar-collapse" id="navbarNavDropdown">
-    <ul class="navbar-nav mr-auto ml-auto text-center">
+    <ul id="mainMenu" class="navbar-nav  mr-auto ml-auto text-center nav">
     <li class="nav-item">
         <a class="nav-link" href="<?=base_url?>">Inicio</a>
       </li>
@@ -51,9 +51,9 @@
       </li>
     </ul>
     <div class="d-flex justify-content-end">
-          <div class="mr-auto p2">
+          <!-- <div class="mr-auto p2 "> -->
         <a class="nav-link" href="#"><i class="fas fa-power-off"></i></a>
-        </div>
+        <!-- </div> -->
         </div>
   </div>
 </nav>

@@ -4,6 +4,13 @@
 form label{
 display: flex;
 } */
+
+body#portada ul.menu li:nth-child(1) a,
+body#noticias ul.menu li:nth-child(2) a,
+body#productos ul.menu li:nth-child(3) a,
+body#contacto ul.menu li:nth-child(4) a {
+  background: red;
+}
 .form-center{
   display: flex;
   justify-content: center;

@@ -22,7 +22,7 @@ class EntradaController{
         $Entrada->insertEntrada();
 
         header("Location:".base_url."entrada/index");
-        $_SESSION['success']="Medicameto".$Entrada->getId_producto(). "registrado exitosamente";
-     }
+        $_SESSION['success'] ="El medicamento ".$Entrada->getId_producto()." resgitro exitosamente";
+    }
 }
 

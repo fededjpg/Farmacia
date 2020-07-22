@@ -2,6 +2,16 @@
 
 <h1 class="text-center">Registro de Productos</h1>
 
+<?php if(isset($_SESSION['success'])): ?>
+<div class="alert alert-success d-flex justify-content-center" role="alert">
+<?=$_SESSION['success']?>
+</div>
+<?php endif; ?>
+
+<?php 
+$destroy= new Destroy();
+$destroy->deleteSession('success');
+?>
 <!-- modal -->
 
 <section class="container">
@@ -21,7 +31,7 @@
           <div class="row">
             <div class="form-group col-md-6 col-sm-6 col-6">
               <label for="recipient-name" class="col-form-label">Clave:</label>
-              <input type="text" class="form-control" id="clave" name="clave">
+              <input type="text" class="form-control" id="id_producto " name="id_producto">
             </div>
             <div class="form-group col-md-6 col-sm-6 col-6">
               <label for="recipient-name" class="col-form-label">Nombre:</label>
@@ -40,23 +50,28 @@
             </div>
             <div class="row">
             <div class="form-group col-md-6 col-sm-6 col-6">
-              <label for="message-text" class="col-form-label">Tipo:</label>
-              <input type="text" name="tipo" id="tipo" class="form-control">
+              <label for="message-text" class="col-form-label">Precio Proveedor:</label>
+              <input type="text" name="precio_proveedor" id="precio_proveedor" class="form-control">
             </div>
             <div class="form-group col-md-6 col-sm-6 col-6">
-              <label for="message-text" class="col-form-label">Precio:</label>
-              <input type="text" name="precio" id="precio" class="form-control">
+              <label for="message-text" class="col-form-label">Precio Publico:</label>
+              <input type="text" name="precio_publico" id="precio_publico" class="form-control">
             </div>
             </div>
             <div class="row">
             <div class="form-group col-md-6 col-sm-6 col-6">
+              <label for="message-text" class="col-form-label">Tipo:</label>
+              <input type="text" name="tipo" id="tipo" class="form-control">
+            </div>
+            <div class="form-group col-md-6 col-sm-6 col-6">
               <label for="message-text" class="col-form-label">Entrada Inicial:</label>
               <input type="text" name="entrada" id="entrada" class="form-control">
             </div>
-            <div class="form-group col-md-6 col-sm-6 col-6">
+            </div>
+
+            <div class="form-group">
               <label for="message-text" class="col-form-label">Fecha Entrada:</label>
               <input type="date" name="fecha" id="fecha" class="form-control">
-            </div>
             </div>
         </div>
         <div class="modal-footer">
@@ -79,7 +94,8 @@
           <th>Descripción</th>
           <th>Gramage</th>
           <th>Contenido</th>
-          <th>Precio</th>
+          <th>Precio Proveedor</th>
+          <th>Precio Publico</th>
           <th>Tipo</th>
           <th>Acciones</th>
 
@@ -92,8 +108,9 @@
           <td><?=$producto->descripcion?></td>
           <td><?=$producto->gramos?></td>
           <td><?=$producto->contenido?></td>
+          <td><?=$producto->precio_proveedor?></td>
+          <td><?=$producto->precio_publico?></td>
           <td><?=$producto->tipo?></td>
-          <td><?=$producto->precio?></td>
           
           <td><a href="<?=base_url?>registro/actualizar&id=<?=$producto->id_producto?>"><i class="far fa-edit"></i></a></td>
         </tr>
