@@ -6,6 +6,7 @@
             <div class="col-md-10 mt-4">
                 <div class="card">
                     <div class="card-header"><h5 class="text-center">   Actualizar Medicamento <?= $producto->descripcion ?></h5></div>
+                    <div class="scroll">
                     <div class="card-body">
                         <form action="<?=base_url?>registro/actualizarProducto" method="post">
                             <div class="form-group row">
@@ -72,6 +73,7 @@
             </div>
         </div>
     </div>
+</div>
 
 <?php endwhile; ?>
 

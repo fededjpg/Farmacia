@@ -104,11 +104,16 @@ class Entrada{
     public function insertEntrada(){
      $insert = "INSERT INTO entradas VALUES (NULL,{$this->getId_producto()}, 
      '{$this->getFecha_registro()}','{$this->getEntradas()}')";
+
+        $UpdateInv = "UPDATE inventario SET stock =stock +'{$this->getEntradas()}'
+        WHERE id_producto= {$this->getId_producto()}";
     // var_dump($insert);
     // die();
      $resultado = $this->db->query($insert);
+     $resultadoInv = $this->db->query($UpdateInv);
      
      return $resultado;
+     return $resultadoInv;
     }
 
 }

@@ -1,6 +1,7 @@
 <?php
 // define("base_url", "http://192.168.0.21/farmacia/");
-define("base_url", "http://192.168.0.25/farmacia/");
+// define("base_url", "http://192.168.0.25/farmacia/");
+define("base_url", "http://192.168.0.36/farmacia/");
 
 // define("base_url", "http://192.168.0.9/farmacia/");
 // define("base_url", "http://localhost/farmacia/");

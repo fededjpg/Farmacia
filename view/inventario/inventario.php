@@ -74,12 +74,13 @@
             <table id="example" class="table table-hover table-striped navbar-expand-sm table-bordered" style="width:100%">
                 <thead class="text-center">
                     <tr>
-                        <th>Numero</th>
+                        <th>Clave Producto</th>
                         <th>Producto</th>
                         <th>Gramos</th>
                         <th>Contenido Neto</th>
                         <th>Tipo</th>
                         <th>Stock</th>
+                        <th>Acciones</th>
 
                     </tr>
                 </thead>
@@ -92,6 +93,7 @@
                             <td><?= $inventario->contenido ?></td>
                             <td><?= $inventario->tipo ?></td>
                             <td><?= $inventario->stock ?></td>
+                            <td><a href="<?=base_url?>inventario/actualizar&id=<?=$inventario->id_producto?>&id_inventario=<?=$inventario->id_inventario?>"><i class="far fa-edit"></i></a></td>
                         </tr>
                     <?php endwhile; ?>
                 </tbody>

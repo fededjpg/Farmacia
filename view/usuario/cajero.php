@@ -1,4 +1,4 @@
- <?php require_once 'view/layout/header.php'; ?>
+<?php require_once 'view/layout/header.php'; ?>
 <?php 
 if(isset($_SESSION['success'])):?>
 <div class="alert alert-success d-flex justify-content-center" role="alert">
@@ -13,7 +13,7 @@ $destroy->deleteSession('success');
 
 ?>
 
-<h1 class="text-center">Entradas</h1>
+<h1 class="text-center">Cajeros</h1>
 <!-- modal -->
 <section class="container">
   <button type="button" class="btn btn-primary mt-2 mb-2" data-toggle="modal" data-target="#add-new-register" data-whatever="@mdo">AGREGAR</button>
@@ -22,44 +22,44 @@ $destroy->deleteSession('success');
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">Agregar una Nueva Entrada</h5>
+          <h5 class="modal-title" id="exampleModalLabel">Agregar Un Cajero Nuevo</h5>
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
         </div>
         <div class="modal-body">
-          <form method="post" action="<?= base_url ?>entrada/insertEntra">
+          <form method="post" action="<?= base_url ?>usuario/addCajero">
             <div class="row">
               <div class="form-group col-md-6">
-                <label for="recipient-name" class="col-form-label">Clave:</label>
-                <input type="text" class="form-control" id="name" name="clave">
+                <label for="recipient-name" class="col-form-label">Usuario</label>
+                <input type="text" class="form-control" id="name" name="usuario">
               </div>
 
               <div class="form-group col-md-6">
-                <label for="recipient-name" class="col-form-label">Nombre:</label>
-                <input type="text" class="form-control" id="name" name="">
+                <label for="recipient-name" class="col-form-label">Nombre</label>
+                <input type="text" class="form-control" id="name" name="nombre">
               </div>
             </div>
             <div class="row">
               <div class="form-group col-md-6">
-                <label for="message-text" class="col-form-label">Gramaje:</label>
-                <input type="text" name="gramos" id="prime" class="form-control">
+                <label for="message-text" class="col-form-label">Apellidos</label>
+                <input type="text" name="apellido" id="prime" class="form-control">
               </div>
 
               <div class="form-group col-md-6">
-                <label for="message-text" class="col-form-label">Tipo:</label>
-                <input type="text" name="tipo" id="prime" class="form-control">
+                <label for="message-text" class="col-form-label">Fecha Nacimiento</label>
+                <input type="date" name="fechaNac" id="prime" class="form-control">
               </div>
             </div>
 
             <div class="row">
               <div class="form-group col-md-6">
-                <label for="recipient-name" class="col-form-label">Fecha de Registro</label>
-                <input type="text" class="form-control" id="date" name="fecha" value="<?= date('Y-m-d') ?>">
+                <label for="recipient-name" class="col-form-label">Telefono</label>
+                <input type="text" class="form-control" id="date" name="telefono">
               </div>
               <div class="form-group col-md-6">
-                <label for="message-text" class="col-form-label">Entradas:</label>
-                <input type="text" name="entradas" id="prime" class="form-control">
+                <label for="recipient-name" class="col-form-label">Contraseña</label>
+                <input type="text" class="form-control" id="date" name="contra">
               </div>
             </div>
             <div class="modal-footer">
@@ -75,38 +75,39 @@ $destroy->deleteSession('success');
 
 
 <!-- data table table-dark table-sm-->
-<div class="scroll">
   <section class="container">
     <div class="table-responsive">
+    <div class="scroll">
       <table id="example" class="table table-hover table-striped navbar-expand-sm table-bordered" style="width:100%">
         <thead class="text-center">
           <tr>
-            <th>Numero</th>
-            <th>Producto</th>
-            <th>Gramos</th>
-            <th>Contenido Neto</th>
-            <th>Tipo</th>
-            <th>Fecha Entrada</th>
-            <th>Entradas</th>
+            <th>Usuario</th>
+            <th>Nombre</th>
+            <th>Apellido</th>
+            <th>Fecha Nacimiento</th>
+            <th>Telefono</th>
+            <th>Contraseña</th>
+            <th>Acciones</th>
           </tr>
         </thead>
         <tbody class="text-center">
-          <?php while ($entrada = $entradas->fetch_object()) : ?>
-            <tr>
-              <td><?= $entrada->id_producto ?></td>
-              <td><?= $entrada->descripcion ?></td>
-              <td><?= $entrada->gramos ?></td>
-              <td><?= $entrada->contenido ?></td>
-              <td><?= $entrada->tipo ?></td>
-              <td><?= $entrada->fecha_registro ?></td>
-              <td><?= $entrada->entradas ?></td>
-            </tr>
-          <?php endwhile; ?>
+  <?php while($cajero=$cajeros->fetch_object()):?>
+        <tr>
+            <td><?=$cajero->usuario?></td>
+            <td><?=$cajero->nombre?></td>
+            <td><?=$cajero->apellido?></td>
+            <td><?=$cajero->f_nacimiento?></td>
+            <td><?=$cajero->telefono?></td>
+            <td><?=$cajero->contraseña?></td>
+            <td><a href="<?=base_url?>usuario/actualizarCajero&userName=<?=$cajero->usuario?>"><i class="far fa-edit"></i></a></td>
+        </tr>
+  <?php endwhile; ?>
         </tbody>
       </table>
     </div>
+    </div>
+
   </section>
-</div>
 
 
 <?php require_once 'view/layout/footer.php'; ?>

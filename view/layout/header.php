@@ -39,14 +39,11 @@
       
       <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Más Opciones
+          Configuraciones
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-          <a class="dropdown-item" href="#">Cobrar</a>
-          <a class="dropdown-item" href="#">Corte</a>
-          <a class="dropdown-item" href="#">Retiro</a>
-          <a class="dropdown-item" href="#">Descuento</a>
-
+        <a class="dropdown-item" href="<?=base_url?>usuario/cajero">Cajero</a>
+        <a class="dropdown-item" href="<?=base_url?>usuario/admin">Administrador</a>
         </div>
       </li>
     </ul>

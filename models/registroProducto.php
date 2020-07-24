@@ -88,14 +88,17 @@ class Producto{
 
         $insertEntered = "INSERT INTO entradas VALUES (NULL,{$this->getIdProducto()},'{$this->getFecha()}','{$this->getEntrada()}')";
         
-        // var_dump($insert);
-        // var_dump($insertt);
-        // die();
+        $insertInv="INSERT INTO inventario(id_producto,stock) VALUES ({$this->getIdProducto()},'{$this->getEntrada()}')";
+        //  var_dump($insertInv);
+        //  var_dump($insertInv);
+        //  die();
         $resultProduct = $this->db->query($insertProduct);
         $resultEntered = $this->db->query($insertEntered);
-
+        $resultInv = $this->db->query($insertInv);
+        
         return $resultProduct;
         return $resultEntered;
+        return $resultInv;
        }
 
        /**para actualizar un producto */

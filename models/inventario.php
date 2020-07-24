@@ -3,6 +3,7 @@ class Inventario{
 
   
     public $id_producto;
+    public $id_inventario;
     public $descripcion;
     public $gramos;
     public $contenido;
@@ -29,7 +30,19 @@ class Inventario{
     {
         return $this->descripcion;
     }
+    public function getId_inventario()
+    {
+        return $this->id_inventario;
+    }
 
+   
+    
+    public function setId_inventario($id_inventario)
+    {
+        return $this->id_inventario = $id_inventario;
+
+        
+    }
 
     public function setDescripcion($descripcion)
     {
@@ -78,10 +91,12 @@ class Inventario{
     }
 
     public function showAllInventario(){
-        $consult = "  SELECT  p.id_producto, p.descripcion, p.gramos, p.contenido, p.tipo,
+        $consult = "  SELECT  i.id_inventario, p.id_producto, p.descripcion, p.gramos, p.contenido, p.tipo,
         e.fecha_registro, e.entradas, sum(e.entradas) as 'stock'  
         FROM entradas e INNER JOIN productos p ON p.id_producto = e.id_producto
+        INNER JOIN inventario i ON p.id_producto = i.id_producto
         group by p.id_producto";
+
         $resultado= $this->db->query($consult);
         return $resultado;
         
@@ -95,5 +110,26 @@ class Inventario{
         // WHERE p.nombre LIKE '%{$this->getDescripcion()}' 
         // group by p.id_producto"+
     }
+
+    public function getOneInventario(){
+
+        $consult ="	SELECT i.id_inventario, p.id_producto, p.descripcion, p.gramos, 
+        p.contenido, p.tipo, i.stock 
+        FROM productos p 
+        INNER JOIN inventario i
+	    ON p.id_producto = {$this->getId_producto()}	
+        WHERE i.id_inventario = {$this->getId_inventario()}";
+
+        $result=$this->db->query($consult);
+
+        return $result;
+    }
    
+
+ 
 }
+    //    SELECT i.id_inventario, p.id_producto, p.descripcion, p.gramos, 
+    //     p.contenido, p.tipo, i.stock 
+    //     FROM productos p, inventario i 
+    //     WHERE  i.id_producto = p.id_producto or p.id_producto=7502216796331
+     
