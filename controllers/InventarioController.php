@@ -28,6 +28,30 @@ class InventarioController{
         $inventarios=$inventario->getOneInventario();
         require 'view/inventario/actualizar.php';
     }
+
+    public function insertarIgualiacion(){
+
+        $inventario = new Inventario();
+
+        $id_inventario=$_POST['id_inventario'];
+        $id_producto=$_POST['id_producto'];
+        $faltantes=$_POST['faltantes'];
+        $restantes=$_POST['restantes'];
+
+        $inventario->setId_inventario($id_inventario);
+        $inventario->setId_producto($id_producto);
+        $inventario->setFaltantes($faltantes);
+        $inventario->setRestantes($restantes);
+
+        $inventario->insertIgualacion();
+
+        header("Location:".base_url."inventario/index");
+        $_SESSION['success'] ="El Inventario se Igualo Exitosamente";
+
+    }
+
+    
+
 }
 
 ?>

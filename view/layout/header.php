@@ -22,7 +22,7 @@
   <div class="collapse navbar-collapse" id="navbarNavDropdown">
     <ul id="mainMenu" class="navbar-nav  mr-auto ml-auto text-center nav">
     <li class="nav-item">
-        <a class="nav-link" href="<?=base_url?>">Inicio</a>
+        <a class="nav-link" href="<?=base_url?>bienvenida/index">Inicio</a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="<?=base_url?>entrada/index">Entradas</a>

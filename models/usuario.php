@@ -2,6 +2,7 @@
 
 
 class Usuario{
+    public $id;
     public $usuario;
     public $nombre;
     public $apellido;
@@ -14,7 +15,15 @@ class Usuario{
 
     public function __construct() {
 		$this->db = Database::connect();
-	}
+    }
+    public function getId()
+    {
+        return $this->id;
+    }
+    public function setId($id)
+    {
+        return $this->id = $id;
+    }
 
     public function getUsuario()
     {
@@ -97,40 +106,39 @@ class Usuario{
         return $result;
     }
     public function addCajero(){
-        $consult="INSERT INTO usuario VALUES('{$this->getUsuario()}', '{$this->getNombre()}', '{$this->getApellido()}','{$this->getFechaNac()}','{$this->getTelefono()}','{$this->getContra()}','cajero')";
+        $consult="INSERT INTO usuario VALUES(NULL,'{$this->getUsuario()}', '{$this->getNombre()}', '{$this->getApellido()}','{$this->getFechaNac()}','{$this->getTelefono()}','{$this->getContra()}','cajero')";
         $result=$this->db->query($consult);
         return $result;
     }
     public function addAdmin(){
-        $consult="INSERT INTO usuario VALUES('{$this->getUsuario()}', '{$this->getNombre()}', '{$this->getApellido()}','{$this->getFechaNac()}','{$this->getTelefono()}','{$this->getContra()}','admin')";
+        $consult="INSERT INTO usuario VALUES(NULL,'{$this->getUsuario()}', '{$this->getNombre()}', '{$this->getApellido()}','{$this->getFechaNac()}','{$this->getTelefono()}','{$this->getContra()}','admin')";
         $result=$this->db->query($consult);
         return $result;
     }
 
     public function getOneCajero(){
-        $consult = "SELECT * FROM usuario where usuario = '{$this->getUsuario()}'";
+        $consult = "SELECT * FROM usuario where id = {$this->getId()}";
         $result=$this->db->query($consult);
         return $result;
     }
 
     public function updateCajero(){
-        $consulta = "UPDATE usuario SET usuario = '{$this->getUsuario()}', nombre= '{$this->getNombre()}', apellido = '{$this->getApellido()}', f_nacimiento= '{$this->getFechaNac()}', telefono = {$this->getTelefono()},contraseña = '{$this->getContra()}',  rol = '{$this->getRol()}' WHERE usuario = '{$this->usuario}' ";
+        $consulta = "UPDATE usuario SET id= {$this->getId()}, usuario = '{$this->getUsuario()}', nombre= '{$this->getNombre()}', apellido = '{$this->getApellido()}', f_nacimiento= '{$this->getFechaNac()}', telefono = {$this->getTelefono()},contraseña = '{$this->getContra()}',  rol = '{$this->getRol()}' WHERE id = {$this->getId()} ";
         $resultado=$this->db->query($consulta);
         return $resultado;
     }
 
     public function getOneAdmin(){
-        $consult = "SELECT * FROM usuario where usuario = '{$this->getUsuario()}'";
+        $consult = "SELECT * FROM usuario where id = {$this->getId()}";
         $result=$this->db->query($consult);
         return $result;
     }
 
     public function updateAdmin(){
-        $consulta = "UPDATE usuario SET usuario = '{$this->getUsuario()}', nombre= '{$this->getNombre()}', apellido = '{$this->getApellido()}', f_nacimiento= '{$this->getFechaNac()}', telefono = {$this->getTelefono()},contraseña = '{$this->getContra()}',  rol = '{$this->getRol()}' WHERE usuario = '{$this->usuario}' ";
+        $consulta = "UPDATE usuario SET id= {$this->getId()}, usuario = '{$this->getUsuario()}', nombre= '{$this->getNombre()}', apellido = '{$this->getApellido()}', f_nacimiento= '{$this->getFechaNac()}', telefono = {$this->getTelefono()},contraseña = '{$this->getContra()}',  rol = '{$this->getRol()}' WHERE id = {$this->getId()} ";
         $resultado=$this->db->query($consulta);
         return $resultado;
     }
 
 
-   
 }

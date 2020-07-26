@@ -99,7 +99,7 @@ $destroy->deleteSession('success');
             <td><?=$cajero->f_nacimiento?></td>
             <td><?=$cajero->telefono?></td>
             <td><?=$cajero->contraseña?></td>
-            <td><a href="<?=base_url?>usuario/actualizarCajero&userName=<?=$cajero->usuario?>"><i class="far fa-edit"></i></a></td>
+            <td><a href="<?=base_url?>usuario/actualizarCajero&id=<?=$cajero->id?>"><i class="far fa-edit"></i></a>
         </tr>
   <?php endwhile; ?>
         </tbody>

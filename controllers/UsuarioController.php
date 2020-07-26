@@ -59,9 +59,9 @@ class UsuarioController{
 
     public function actualizarCajero(){
 
-        $user= $_GET['userName'];
+        $id= $_GET['id'];
         $cajero = new Usuario();
-        $cajero->setUsuario($user);
+        $cajero->setId($id);
         $cajer =$cajero->getOneCajero();
 
         require 'view/usuario/actualizarCajero.php';
@@ -70,6 +70,7 @@ class UsuarioController{
     public function actualizarElCajero(){
         $user = new Usuario();
 
+        $id= $_POST['id'];
         $usuario=$_POST['usuario'];
         $nombre=$_POST['nombre'];
         $apellido=$_POST['apellido'];
@@ -78,6 +79,7 @@ class UsuarioController{
         $seleccion=$_POST['seleccion'];
         $contra=$_POST['contra'];
 
+        $user->setId($id);
         $user->setUsuario($usuario);
         $user->setNombre($nombre);
         $user->setApellido($apellido);
@@ -94,9 +96,9 @@ class UsuarioController{
     }
     public function actualizarAdmin(){
 
-        $userName= $_GET['userName'];
+        $id= $_GET['id'];
         $admin = new Usuario();
-        $admin->setUsuario($userName);
+        $admin->setId($id);
         $admins =$admin->getOneAdmin();
 
         require 'view/usuario/actualizarAdmin.php';
@@ -104,7 +106,8 @@ class UsuarioController{
     }
     public function actualizarElAdmin(){
         $user = new Usuario();
-
+    
+        $id= $_POST['id'];
         $usuario=$_POST['usuario'];
         $nombre=$_POST['nombre'];
         $apellido=$_POST['apellido'];
@@ -113,6 +116,7 @@ class UsuarioController{
         $seleccion=$_POST['seleccion'];
         $contra=$_POST['contra'];
 
+        $user->setId($id);
         $user->setUsuario($usuario);
         $user->setNombre($nombre);
         $user->setApellido($apellido);
@@ -120,7 +124,7 @@ class UsuarioController{
         $user->setTelefono($telefono);
         $user->setRol($seleccion);
         $user->setContra($contra);
-        $user->updateCajero();
+        $user->updateAdmin();
 
         header("Location:".base_url."usuario/admin");
         $_SESSION['success']="El Administrador ". $user->getUsuario() . " se actualizo satisfactoriamente";

@@ -4,10 +4,10 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
-  <link rel="stylesheet" href="view/asset/css/main.css">
-  <link rel="stylesheet" href="view/asset/css/style.css">
-  <link rel="stylesheet" href="view/asset/bootstrap/css/bootstrap.min.css">
-  <link rel="stylesheet" type="text/css" href="view/asset/fontawesome/css/all.min.css">   
+  <link rel="stylesheet" href="<?=base_url?>view/asset/css/main.css">
+  <link rel="stylesheet" href="<?=base_url?>view/asset/css/style.css">
+  <link rel="stylesheet" href="<?=base_url?>view/asset/bootstrap/css/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="<?=base_url?>view/asset/fontawesome/css/all.min.css">   
   <link rel="stylesheet" href="https://cdn.datatables.net/1.10.21/css/dataTables.bootstrap4.min.css">
 
 </head>
@@ -105,6 +105,6 @@
     
 
 </body>
-<script src="js/jquery.js"></script>
-<script src="view/asset/bootstrap/js/bootstrap.min.js"></script>
+<script src="<?=base_url?>js/jquery.js"></script>
+<script src="<?=base_url?>view/asset/bootstrap/js/bootstrap.min.js"></script>
 </html>

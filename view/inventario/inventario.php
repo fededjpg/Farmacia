@@ -1,4 +1,18 @@
 <?php require_once 'view/layout/header.php'; ?>
+<?php 
+if(isset($_SESSION['success'])):?>
+<div class="alert alert-success d-flex justify-content-center" role="alert">
+<?=$_SESSION['success']?>
+</div>
+<?php endif; ?>
+
+<?php 
+
+$destroy= new Destroy();
+$destroy->deleteSession('success');
+
+?>
+
 
 <h1 class="text-center">Inventario</h1>
 

@@ -32,6 +32,12 @@ body#contacto ul.menu li:nth-child(4) a {
   overflow: scroll;
   height: 400px;
 }
+.scroll2{
+  overflow: scroll;
+  height: 400px;
+  width: 650px;
+  float: left;
+}
 .general{
   height: 100vh;
 }

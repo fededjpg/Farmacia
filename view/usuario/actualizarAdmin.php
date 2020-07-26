@@ -5,10 +5,11 @@
         <div class="row justify-content-center">
             <div class="col-md-10 mt-4">
                 <div class="card">
-                    <div class="card-header"><h5 class="text-center">   Actualizar Cajero<?= $admin->usuario?></h5></div>
+                    <div class="card-header"><h5 class="text-center">   Actualizar Admin <?= $admin->usuario?></h5></div>
                     <div class="scroll">
                     <div class="card-body">
                         <form action="<?=base_url?>usuario/actualizarElAdmin" method="post">
+                            <input  type="hidden" name ='id' value="<?=$admin->id?>">
                             <div class="form-group row">
                                 <label for="" class="col-md-3 text-md-right col-form-label">Usuario:</label>
                                 <div class="col-md-6">

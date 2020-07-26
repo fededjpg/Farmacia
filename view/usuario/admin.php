@@ -92,7 +92,7 @@ $destroy->deleteSession('success');
             <td><?=$admin->apellido?></td>
             <td><?=$admin->f_nacimiento?></td>
             <td><?=$admin->contraseña?></td>
-            <td><a href="<?=base_url?>usuario/actualizarAdmin&userName=<?=$admin->usuario?>"><i class="far fa-edit"></i></a></td>
+            <td><a href="<?=base_url?>usuario/actualizarAdmin&id=<?=$admin->id?>"><i class="far fa-edit"></i></a></td>
         </tr>
   <?php endwhile; ?>
         </tbody>
