@@ -129,11 +129,12 @@ class Inventario{
 
     }
     public function showAllProducto(){
-        $consult = "SELECT i.id_inventario, p.id_producto, p.descripcion, p.gramos, p.contenido, p.precio_publico, p.tipo, i.stock
-        FROM productos p 
-        INNER JOIN inventario i
-	    ON p.id_producto = {$this->getId_producto()}	
-        WHERE i.id_inventario = {$this->getId_inventario()}";
+    $consult="SELECT * FROM productos where descripcion =  '{$this->getDescripcion()}'";
+        // $consult = "SELECT i.id_inventario, p.id_producto, p.descripcion, p.gramos, p.contenido, p.precio_publico, p.tipo, i.stock
+        // FROM productos p 
+        // INNER JOIN inventario i
+	    // ON p.id_producto = {$this->getId_producto()}	
+        // WHERE i.id_inventario = {$this->getId_inventario()}";
         $resultado= $this->db->query($consult);
         return $resultado;   
     }
@@ -173,8 +174,7 @@ class Inventario{
         $result=$this->db->query($consult);
 
         return $result;
-    }
-   
+    }   
 
 }
    

@@ -50,6 +50,17 @@ class InventarioController{
 
     }
 
+    public function showAllProducto(){
+
+        $id= $_POST['id'];
+
+        $productos = new Inventario();
+        $productos->setId_producto($id);
+        $productos->showAllProducto();
+
+
+    }
+
     
 
 }

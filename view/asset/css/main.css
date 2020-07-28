@@ -4,6 +4,9 @@
 form label{
 display: flex;
 } */
+.descripcion{
+  width: 80px;
+}
 
 body#portada ul.menu li:nth-child(1) a,
 body#noticias ul.menu li:nth-child(2) a,
@@ -35,8 +38,6 @@ body#contacto ul.menu li:nth-child(4) a {
 .scroll2{
   overflow: scroll;
   height: 400px;
-  width: 650px;
-  float: left;
 }
 .general{
   height: 100vh;

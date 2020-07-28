@@ -1,17 +1,146 @@
 <?php require_once 'view/layout/header.php'; ?>
+
+<style>
+/*Estilos generales para todos los proyectos*/
+* {
+  box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: sans-serif;
+  color: #333; }
+
+h1 {
+  text-align: center;
+  color: #333; }
+
+.table-rwd {
+  font-size: .85em;
+  border: 1px solid rgba(181, 213, 144, 0.5);
+  color: #666;
+  border-collapse: collapse;
+  margin-left: auto;
+  margin-right: auto; }
+  .table-rwd td, .table-rwd th {
+    padding: .8em;
+    border-bottom: 1px solid rgba(181, 213, 144, 0.5); }
+  .table-rwd th {
+    background: #1A8CFF;
+    color: #fff;
+    font-weight: normal;
+    text-align: right; }
+  .table-rwd td {
+    text-align: right; }
+/*     .table-rwd td:before {
+      content: "$ ";
+      color: #1A8CFF; } */
+/*     .table-rwd td:after {
+      content: ".00"; } */
+    .table-rwd td:first-of-type {
+      text-align: left; }
+      .table-rwd td:first-of-type:before {
+        content: ""; }
+      .table-rwd td:first-of-type:after {
+        content: ""; }
+  .table-rwd tr:hover {
+    background: rgba(181, 213, 144, 0.2); }
+  .table-rwd tr td:nth-child(2n) {
+    background: rgba(181, 213, 144, 0.2); }
+
+.table-container {
+  overflow-x: auto; }
+
+.table-rwd {
+  min-width: 900px; }
+  .table-rwd td:first-child {
+    position: absolute;
+    background: #fff;
+    width: 8em; }
+  .table-rwd th:first-child {
+    width: 8em; }
+  .table-rwd tr:hover td:first-child {
+    background: #1A8CFF;
+    color: #fff; }
+  .table-rwd tr:nth-child(2) td:first-child {
+    box-shadow: 0 -2.7em 0 -6px #1A8CFF, -6px -2.7em 0 -6px #1A8CFF; }
+
+
+
+/*EL DE HASTA ABAJO*/
+#div1 {
+    overflow:scroll;
+     height:500px;
+     width:100%;
+}
+#div1 table {
+    width:100%;
+    background-color:lightgray;
+}
+</style>
+<input type="text" id="descripcion" class="buscar peque-2" >
+<!-- <input type="text" id="gramos"> -->
+<table class="table-rwd">
+        <thead>
+            <tr>
+                <th>Descripcion</th>
+                <th>Gramos</th>
+                <th>Contenido</th>
+                <th>Precio Pubico</th>
+                <th>Tipo</th>
+                <th>Stock</th>
+                <th>Cantidad</th>
+                <th>Precio Total</th>
+                <th>Acciones</th>
+            </tr>
+            <tbody>
+                <tr>
+                    <td class="descripcion"></td>
+                    <td id="gramos"></td>
+                    <td id="contenido"></td>
+                    <td id="precio_publico"></td>
+                    <td id="tipo"></td>
+                    <td id="stock"></td>
+                    <td> <input type="text" class="peque" id="cantidad" disabled> </td>
+                    <td id="total"></td>
+                    <td> <a class="ocultar oculto agregar" href="" >agregar</a> </td>
+
+                </tr>
+            </tbody>
+        </thead>
+    </table>
+    <button class="petition">
+        Click
+    </button>
+    <style>
+        .oculto{
+            display: none;
+        }
+        .peque{
+            width: 30px;
+        }
+        .peque-2{
+            width: 80px;
+        }
+    </style>
+
+<td> <a href="#" class="eliminame">eliminar</a></td>
+
+
+<!--     
 <div class="scroll2">
 <section class="container">
     <div class="table-responsive mt-4">
-        <table id="example" class="table table-hover table-striped navbar-expand-sm table-bordered" style="width:100%">
+        <table id="example-2" class="table table-hover table-striped navbar-expand-sm table-bordered" style="width:100%">
             <thead>
                 <tr>
-                    <th>Código</th>
                     <th>Descripción</th>
                     <th>Gramos</th>
                     <th>Contenido</th>
                     <th>Tipo</th>
                     <th>Precio Publico</th>
                     <th>Stock</th>
+                    <th>Cantidad</th>
+                    <th>Total</th>
                     <th>Acciones</th>
 
                 </tr>
@@ -19,48 +148,75 @@
             <tbody>
             <?php while ($inventario = $inventarios->fetch_object()) : ?>
                         <tr>
-                            <td><?= $inventario->id_producto ?></td>
-                            <td><?= $inventario->descripcion ?></td>
-                            <td><?= $inventario->gramos ?></td>
-                            <td><?= $inventario->contenido ?></td>
-                            <td><?= $inventario->tipo ?></td>
-                            <td><?= $inventario->precio_publico ?></td>
-                            <td><?= $inventario->stock ?></td>
-                            <td><input class="agregar" type="button" value="Agregar"></td>
+                            <td id="id_producto"><?= $inventario->id_producto ?></td>
+                            <td id="descripcion"><?= $inventario->descripcion ?></td>
+                            <td id="gramos"><?= $inventario->gramos ?></td>
+                            <td id="contenido"><?= $inventario->contenido ?></td>
+                            <td id="tipo"><?= $inventario->tipo ?></td>
+                            <td id="precio_publico"><?= $inventario->precio_publico ?></td>
+                            <td id="stock"><?= $inventario->stock ?></td>
+                            <td><input id="cantidad" type="text"></td>
+                            <td id="total"></td>
+                            <td><a class="agregar" href="">Agregar</a></td>
                         </tr>
                     <?php endwhile; ?>
             </tbody>
         </table>
+        </form>
     </div>
 </section>
-</div>
-
-
+</div> -->
+    
 <div class="scroll2">
 <section class="container">
     <div class="table-responsive mt-4">
-        <table id="tabla2" class="table table-hover table-striped navbar-expand-sm table-bordered" style="width:100%">
-                <thead>
-                    <th>Código</th>
+        <table id="example-2" class="table table-hover table-striped navbar-expand-sm table-bordered" style="width:100%">
+            <thead>
+                <tr>
                     <th>Descripción</th>
                     <th>Gramos</th>
                     <th>Contenido</th>
-                    <th>Tipo</th>
                     <th>Precio Publico</th>
+                    <th>tipo</th>
                     <th>Cantidad</th>
-                </thead>
+                    <th>Total</th>
+                    <th>Acciones</th>
 
+                </tr>
+            </thead>
+            <tbody class="draw" >
+            
+            </tbody>
         </table>
+        </form>
     </div>
 </section>
-
 </div>
+
+<?php 
+// require_once 'visualizar.php';
+?>
+<!-- <script>
+    function obtenerDatos(id){
+        $.ajax({
+            type: "POST",
+            url: "http://192.168.0.25/farmacia/cobrar/showAllProducto",
+            data: "id="+ id,
+            success: function (response) {
+                console.log(response);
+                if(response==0){
+                    console.log("hola")
+                }
+            }
+        });
+}
+</script> -->
 
 <section>
     <div class="container">
         <h4 class="text-center">Subtotal</h4>
         <div class="input-group mb-3">
-            <input class="subtotal" type="text" class="form-control" placeholder="" aria-label="Username" aria-describedby="basic-addon1">
+            <input type="text" class="form-control" placeholder="" aria-label="Username" aria-describedby="basic-addon1">
         </div>
         <div class="d-flex justify-content-end">
             <h4 class="mr-4">Descuento</h4><input type="text" placeholder="Subtotal"><span>%</span>

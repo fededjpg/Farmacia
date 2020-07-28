@@ -22,8 +22,10 @@ class RegistroController{
         $precio_pro=$_POST['precio_proveedor'];
         $fecha=$_POST['fecha'];
         $entrada=$_POST['entrada'];
+        $union= $descripcion.' '.$gramos.' '.$tipo;
 
         $producto->setIdProducto($clave);
+        $producto->setNombre($union);
         $producto->setDescription($descripcion);
         $producto->setGramos($gramos);
         $producto->setContenido($contenido);

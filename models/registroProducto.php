@@ -2,6 +2,7 @@
 class Producto{
 
     public $id_producto;
+    public $nombre;
     public $description;
     public $gramos;
     public $contenido;
@@ -75,6 +76,14 @@ class Producto{
     public function setEntrada($entrada){
         return $this->entrada=$entrada;
     }
+    public function getNombre()
+    {
+        return $this->nombre;
+    }
+    public function setNombre($nombre)
+    {
+        return $this->nombre = $nombre;
+    }
 
 /**visualixar todos lod productos en la tabla */
     public function showAllProducts(){
@@ -84,7 +93,8 @@ class Producto{
     }
 /**insertar un producto */
     public function insertProducto(){
-        $insertProduct = "INSERT INTO productos VALUES ({$this->getIdProducto()},'{$this->getDescription()}','{$this->getGramos()}','{$this->getContenido()}','{$this->getTipo()}','{$this->getPrecioproveedor()}','{$this->getPrecio()}')";
+
+        $insertProduct = "INSERT INTO productos VALUES ({$this->getIdProducto()},'{$this->getNombre()}', '{$this->getDescription()}','{$this->getGramos()}','{$this->getContenido()}','{$this->getTipo()}','{$this->getPrecioproveedor()}','{$this->getPrecio()}')";
 
         $insertEntered = "INSERT INTO entradas VALUES (NULL,{$this->getIdProducto()},'{$this->getFecha()}','{$this->getEntrada()}')";
         
@@ -125,7 +135,6 @@ class Producto{
               
     }
    
-
 }
 
 
