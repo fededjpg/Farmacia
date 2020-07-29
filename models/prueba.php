@@ -1,6 +1,7 @@
 <?php 
 
 class Prueba{
+        public $id;
         public $descripcion;
         public $gramos;
         public $contenido;
@@ -14,7 +15,16 @@ class Prueba{
         public function __construct() {
                     $this->db = Database::connect();
             }
-
+            public function getId()
+            {
+                    return $this->id;
+            }
+    
+    
+            public function setId($id)
+            {
+                    return $this->id = $id;
+            }
 
 
         public function getDescripcion()
@@ -125,10 +135,26 @@ class Prueba{
         }
 
         public function showAll(){
+                
                 $mostrar = "SELECT * FROM prueba";
                 $respuesta= $this->db->query($mostrar);
-
                 return $respuesta;
+
+                
+                //FUNCIONA....
+                // $mostrar = "SELECT * FROM prueba";
+                // $respuesta= $this->db->query($mostrar);
+
+                // return $respuesta;
         }
+
+        public function deleteProduct(){
+        $sql="DELETE FROM prueba WHERE id = {$this->getId()}";
+        $respuesta=$this->db->query($sql);
+
+        // return $respuesta2;
+        return $respuesta;
+        }
+
 }
 ?>

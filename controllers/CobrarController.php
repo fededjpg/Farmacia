@@ -68,11 +68,45 @@ exit;
         }
 
         public function visualizar(){
+            // FUNCIONAA
 
             $prueba= new Prueba();
-            $sql=$prueba->showAll();
-            $result = mysqli_fetch_all($sql, MYSQLI_ASSOC);
-            exit(json_encode($result));
+            $datos=$prueba->showAll();
+
+            $datosTabla="";
+
+            
+            foreach ($datos as $key => $value) {
+                
+                $datosTabla= $datosTabla.'
+                <tr>
+                <td><input type="checkbox" value="'.$value['id'].'" ></td>
+                <td>'.$value['descripcion'].'</td>
+                <td>'.$value['gramos'].'</td>
+                <td>'.$value['contenido'].'</td>
+                <td>'.$value['tipo'].'</td>
+                <td>'.$value['precio_publico'].'</td>
+                <td>'.$value['stock'].'</td>
+                <td>'.$value['cantidad'].'</td>
+                <td class="sumar">'.$value['total'].'</td>
+            </tr>
+                ';
+            }
+            echo $datosTabla;
+
+            // $prueba= new Prueba();
+            // $sql=$prueba->showAll();
+            // $result = mysqli_fetch_all($sql, MYSQLI_ASSOC);
+            // exit(json_encode($result));
+        }
+
+        public function eliminarProducto(){
+            $id= $_POST['valor'];
+            $delete = new Prueba();
+            $delete->setId($id);
+            $exito=$delete->deleteProduct();
+
+            return 1;
         }
         
 

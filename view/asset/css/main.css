@@ -4,6 +4,17 @@
 form label{
 display: flex;
 } */
+
+.scroll2 .fa-trash{
+  color: #ffffff;
+}
+.scroll2 .eliminame{
+color: #ffffff;
+width: 80px;
+}
+.holi{
+  background-color: red;
+}
 .descripcion{
   width: 80px;
 }

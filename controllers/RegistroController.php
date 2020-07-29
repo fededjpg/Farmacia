@@ -34,6 +34,7 @@ class RegistroController{
         $producto->setPrecioproveedor($precio_pro);
         $producto->setFecha($fecha);
         $producto->setEntrada($entrada);
+        $producto->setStock($entrada);
         
         $producto->insertProducto();
 

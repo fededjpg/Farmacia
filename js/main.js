@@ -114,7 +114,7 @@ $(document).ready(function() {
         
         $.ajax({
             type: "POST",
-            url: "http://192.168.0.25/farmacia/cobrar/buscar",
+            url: "http://192.168.0.100/farmacia/cobrar/buscar",
             data: {buscar:buscar},
             async:true,
             success: function (response) {
@@ -219,7 +219,7 @@ $(document).ready(function() {
 
         $.ajax({
             type: "POST",
-            url: "http://192.168.0.25/farmacia/cobrar/recibo",
+            url: "http://192.168.0.100/farmacia/cobrar/recibo",
             data: data,
             dataType: "dataType",
             success: function (response) {
@@ -228,65 +228,140 @@ $(document).ready(function() {
         });
     })
 
-    //MOSTRAR LOS DATOS 
+ let petition = document.querySelector(".agregar");
 
-    // 	$.ajax({
-	// 	type:"POST",
-	// 	url:"procesos/mostrarDatos.php",
-	// 	success:function(r){
-	// 		$('#tablaDatos').html(r);
-	// 	}
-    // });
-    
-   let petition = document.querySelector(".agregar"),
-    draw = document.querySelector(".draw");
-    let prueba = [];
 
-petition.addEventListener('click', e =>{
-    console.log("me haz dado click");
+ //MOSTRAR LOS DATOS 
+ petition.addEventListener('click', e =>{
 
-    fetch('http://192.168.0.25/farmacia/cobrar/visualizar')
-    .then(response=>{
-        if(response.ok){
-            return response.json();
-        }
-        else{
-            throw "ERROR EN LA PETICIÓN" + status;
-        }
-
-    })
-    .then(data =>{
-        let response = '';  
-        for(let i in data){
-            response += ` 
-            <tr>
-            <td>${data[i].descripcion}</td>
-            <td>${data[i].gramos}</td>
-            <td>${data[i].contenido}</td>
-            <td>${data[i].precio_publico}</td>
-            <td>${data[i].tipo}</td>
-            <td>${data[i].cantidad}</td>
-            <td>${data[i].total}</td>
-            <td> <a href="#" class="eliminame">eliminar</a></td>
-            </tr>
-            `;
-        }
-        document.querySelector('.draw').innerHTML = response;
-    })
-    .catch(error =>{
-    console.log(error);
-    })
-
+    	$.ajax({
+		type:"POST",
+		url:"http://192.168.0.100/farmacia/cobrar/visualizar",
+		success:function(r){
+            console.log(r);
+            $('#tablaDatos').html(r);
+            // let aver = parseInt($('.sumar').html()
+            
+            
+		}
+    });
 });
+
+let peticion = document.querySelector(".eliminame");
+
+peticion.addEventListener('click', e =>{
+
+    $.ajax({
+    type:"POST",
+    url:"http://192.168.0.100/farmacia/cobrar/visualizar",
+    success:function(r){
+        console.log(r);
+        $('#tablaDatos').html(r);
+        
+    }
+});
+});
+
+   
+    
+    //ESTO FUNCIONA
+//    let petition = document.querySelector(".agregar"),
+//     draw = document.querySelector(".draw");
+//     let prueba = [];
+
+// petition.addEventListener('click', e =>{
+//     console.log("me haz dado click");
+
+//     fetch('http://192.168.0.25/farmacia/cobrar/visualizar')
+//     .then(response=>{
+//         if(response.ok){
+//             return response.json();
+//         }
+//         else{
+//             throw "ERROR EN LA PETICIÓN" + status;
+//         }
+
+//     })
+//     .then(data =>{
+//         let response = '';  
+//         for(let i in data){
+//             response += ` 
+//             <tr>
+//             <td>${data[i].descripcion}</td>
+//             <td>${data[i].gramos}</td>
+//             <td>${data[i].contenido}</td>
+//             <td>${data[i].precio_publico}</td>
+//             <td>${data[i].tipo}</td>
+//             <td>${data[i].cantidad}</td>
+//             <td>${data[i].total}</td>
+//             <td> <a href="#" class="eliminame">eliminar</a></td>
+//             </tr>
+//             `;
+//         }
+//         document.querySelector('.draw').innerHTML = response;
+//     })
+//     .catch(error =>{
+//     console.log(error);
+//     })
+
+// });
+//ESTO FUNCIONA TERMINA AQUI
 
 $('.eliminame').on('click', function(e){
-    alert("hola como estas");
+    e.preventDefault();
+    $("input:checkbox:checked").each(function() {
+
+        let valor=$(this).val();
+        data={
+            valor:valor
+        }
+        
+
+        $.ajax({
+            type: "POST",
+            url: "http://192.168.0.100/farmacia/cobrar/eliminarProducto",
+            data: data,
+            dataType: "dataType",
+            success: function (r) {
+                console.log(r);
+            }
+        });
+
+        // swal({
+        //     title: "Eliminar Producto",
+        //     text: "Deseas eliminar este medicamento",
+        //     icon: "warning",
+        //     buttons: true,
+        //     dangerMode: true,
+        //   })
+        //   .then((willDelete) => {
+        //     if (willDelete) {
+        //       swal("Poof! Your imaginary file has been deleted!", {
+        //         icon: "success",
+        //       });
+        //     } else {
+        //       swal("Your imaginary file is safe!");
+        //     }
+        //   });
+        // console.log($(this).val());
+        // alert($(this).val());
+   });
 })
 
-$('.eliminar').on('click',function(e){
-    e.preventDefault();
-    console.log("hola");
+// $('.eliminar').on('click',function(e){
+//     e.preventDefault();
+//     console.log("hola");
     
-});
+// });
+
+// function eliminame(id){
+//     alert("hola perro");
+// }
+//     $('.holi').on('click', function () {
+//         alert('hola');
+//     });
+
+
+
     
 } );

@@ -9,7 +9,7 @@
                     <div class="card-body">
                         <form action="<?=base_url?>inventario/insertarIgualiacion" method="post">
                            
-                        <input type="hidden" name="id_inventario" value="<?= $inventario->id_inventario?>" class="form-control" placeholder="" aria-describedby="helpId">
+                        <input type="hidden" name="id_inventario" value="<?= $inventario->id_producto?>" class="form-control" placeholder="" aria-describedby="helpId">
 
                             <div class="form-group row">
                                 <label for="" class="col-md-3 text-md-right col-form-label">Clave producto:</label>

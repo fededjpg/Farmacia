@@ -114,9 +114,8 @@ class Inventario{
     }
 
     public function showAllInventario(){
-        $consult = "  SELECT  i.id_inventario, p.id_producto, p.descripcion, p.gramos, p.contenido, p.precio_publico, p.tipo, i.stock
-        FROM productos p, inventario i
-        WHERE p.id_producto = i.id_producto";
+        $consult = "  SELECT  id_producto, descripcion, gramos, contenido,tipo, stock
+        FROM productos ";
 
         // SELECT  i.id_inventario, p.id_producto, p.descripcion, p.gramos, p.contenido, p.tipo,
         // e.fecha_registro, e.entradas, sum(e.entradas) as 'stock'  
@@ -141,10 +140,10 @@ class Inventario{
     
     // getRestantes es Sobrantes
     public function insertIgualacion(){
-        $insert = "INSERT INTO igualacion_inventario VALUES (NULL,{$this->getId_inventario()},{$this->getId_producto()}, 
+        $insert = "INSERT INTO igualacion_inventario VALUES (NULL,{$this->getId_producto()}, 
         {$this->getFaltantes()},{$this->getRestantes()},CURDATE())";
 
-        $UpdateInv=" UPDATE inventario SET stock= stock - {$this->getFaltantes()}, 
+        $UpdateInv=" UPDATE productos SET stock= stock - {$this->getFaltantes()}, 
         stock=stock+{$this->getRestantes()}
         WHERE id_producto={$this->getId_producto()}";
         
@@ -165,11 +164,9 @@ class Inventario{
 
     public function getOneInventario(){
 
-        $consult ="	SELECT i.id_inventario, p.id_producto, p.descripcion
-        FROM productos p 
-        INNER JOIN inventario i
-	    ON p.id_producto = {$this->getId_producto()}	
-        WHERE i.id_inventario = {$this->getId_inventario()}";
+        $consult ="	SELECT id_producto, descripcion
+        FROM productos
+        WHERE id_producto = {$this->getId_producto()}";
 
         $result=$this->db->query($consult);
 

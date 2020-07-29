@@ -107,7 +107,7 @@ $destroy->deleteSession('success');
                             <td><?= $inventario->contenido ?></td>
                             <td><?= $inventario->tipo ?></td>
                             <td><?= $inventario->stock ?></td>
-                            <td><a href="<?=base_url?>inventario/actualizar&id=<?=$inventario->id_producto?>&id_inventario=<?=$inventario->id_inventario?>"><i class="far fa-edit"></i></a></td>
+                            <td><a href="<?=base_url?>inventario/actualizar&id=<?=$inventario->id_producto?>"><i class="far fa-edit"></i></a></td>
                         </tr>
                     <?php endwhile; ?>
                 </tbody>

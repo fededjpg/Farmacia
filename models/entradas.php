@@ -105,7 +105,7 @@ class Entrada{
      $insert = "INSERT INTO entradas VALUES (NULL,{$this->getId_producto()}, 
      '{$this->getFecha_registro()}','{$this->getEntradas()}')";
 
-        $UpdateInv = "UPDATE inventario SET stock =stock +'{$this->getEntradas()}'
+        $UpdateInv = "UPDATE productos SET stock =stock +'{$this->getEntradas()}'
         WHERE id_producto= {$this->getId_producto()}";
     // var_dump($insert);
     // die();

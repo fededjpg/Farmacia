@@ -11,11 +11,21 @@ class Producto{
     public $precio_proveedor;
     public $fecha;
     public $entrada;
+    public $stock;
     private $db;
 
     public function __construct() {
 		$this->db = Database::connect();
-	}
+    }
+    public function getStock()
+    {
+        return $this->stock;
+    }
+
+    public function setStock($stock)
+    {
+        return $this->stock = $stock;
+    }
 
     public function getIdProducto(){
         return $this->id_producto;
@@ -94,21 +104,22 @@ class Producto{
 /**insertar un producto */
     public function insertProducto(){
 
-        $insertProduct = "INSERT INTO productos VALUES ({$this->getIdProducto()},'{$this->getNombre()}', '{$this->getDescription()}','{$this->getGramos()}','{$this->getContenido()}','{$this->getTipo()}','{$this->getPrecioproveedor()}','{$this->getPrecio()}')";
+        $insertProduct = "INSERT INTO productos VALUES ({$this->getIdProducto()},'{$this->getNombre()}', '{$this->getDescription()}','{$this->getGramos()}','{$this->getContenido()}','{$this->getTipo()}','{$this->getPrecioproveedor()}','{$this->getPrecio()}', {$this->getStock()})";
 
         $insertEntered = "INSERT INTO entradas VALUES (NULL,{$this->getIdProducto()},'{$this->getFecha()}','{$this->getEntrada()}')";
         
-        $insertInv="INSERT INTO inventario(id_producto,stock) VALUES ({$this->getIdProducto()},'{$this->getEntrada()}')";
+        // $insertInv="INSERT INTO inventario(id_producto,stock) VALUES ({$this->getIdProducto()},'{$this->getEntrada()}')";
         //  var_dump($insertInv);
         //  var_dump($insertInv);
         //  die();
         $resultProduct = $this->db->query($insertProduct);
         $resultEntered = $this->db->query($insertEntered);
-        $resultInv = $this->db->query($insertInv);
+        // $resultInv = $this->db->query($insertInv);
+
         
         return $resultProduct;
         return $resultEntered;
-        return $resultInv;
+        // return $resultInv;
        }
 
        /**para actualizar un producto */
@@ -135,6 +146,7 @@ class Producto{
               
     }
    
+
 }
 
 
