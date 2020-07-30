@@ -114,7 +114,7 @@ $(document).ready(function() {
         
         $.ajax({
             type: "POST",
-            url: "http://192.168.0.100/farmacia/cobrar/buscar",
+            url: "http://192.168.0.21/farmacia/cobrar/buscar",
             data: {buscar:buscar},
             async:true,
             success: function (response) {
@@ -128,11 +128,13 @@ $(document).ready(function() {
                 $('#tipo').html(info.tipo);
                 $('#stock').html(info.stock);
                 $('#cantidad').val('0');
+                $('#descuento').val('0');
 
                 //activar cantidad
                 $('#cantidad').removeAttr('disabled');
+                $('#descuento').removeAttr('disabled');
                 //muestra el boton agregar
-                $('.ocultar').slideDown();
+                // $('.ocultar').slideDown();
             }else{
                 $('#gramos').html('0');
                 $('#contenido').html('0');
@@ -143,6 +145,7 @@ $(document).ready(function() {
 
                 //bloquear cantidad
                 $('#cantidad').attr('disabled', 'disabled');
+                $('#total').attr('disabled', 'disabled');
                 //ocultar boton agregar
                 $('.ocultar').slideUp();
 
@@ -155,25 +158,26 @@ $(document).ready(function() {
 
     $('.buscar').keyup(buscar);
     //validar cantidad del productos antes de agregar
-    $('#cantidad').keyup(function (e) { 
-        e.preventDefault();
-        let precio_total = $(this).val() * $('#precio_publico').html();
-        let stock = parseInt($('#stock').html());
-        console.log(stock);
-        console.log(precio_total);
-        $('#total').html(precio_total);
+    // $('#cantidad').keyup(function (e) { 
+    //     e.preventDefault();
+    //     let precio_total = $(this).val() * $('#precio_publico').html();
+    //     let stock = parseInt($('#stock').html());
+    //     console.log(stock);
+    //     console.log(precio_total);
+    //     $('#total').html(precio_total);
 
-        //OCULTAR AGREGAR SI LA CANTIDAD ES MENOR QUE 1
-        if($(this).val() < 1 || isNaN($(this).val()) || $(this).val() > stock){
-            $('.ocultar').slideUp();
-        }else{
-            $('.ocultar').slideDown();
-        }
-    });
+    //     //OCULTAR AGREGAR SI LA CANTIDAD ES MENOR QUE 1
+    //     if($(this).val() < 1 || isNaN($(this).val()) || $(this).val() > stock){
+    //         $('.ocultar').slideUp();
+    //     }else{
+    //         $('.ocultar').slideDown();
+    //     }
+    // });
 
     $('#cantidad').keyup(function (e) { 
         e.preventDefault();
         let precio_total= $(this).val() * $('#precio_publico').html();
+        
         let stock = parseInt($('#stock').html());
 
         $('#total').html(precio_total);
@@ -186,6 +190,52 @@ $(document).ready(function() {
 
     });
 
+    $('#descuento').keyup(function (e) { 
+        e.preventDefault();
+        // let total = $('#total').html();
+        console.log(total)
+        // let valor = parseFloat(total);
+        let valor_restar=0;
+        if($(this).val() < 0 || isNaN($(this).val()) ||  $(this).val() == ""){
+            $('.agregar').slideUp();
+        }else{
+            $('.agregar').slideDown();
+
+        }
+        
+
+        if ($(this).val() > 0) {
+            valor_restar = parseFloat($(this).val());
+        let precio_total= $('#cantidad').val() * $('#precio_publico').html();
+
+            // console.log(valor_restar);
+            // let subtotal= $('#total').html();
+            let total=(precio_total - (precio_total / 100) * valor_restar) ;
+            
+            // let total= subtotal -(subtotal * mostrar);
+            console.log(total);
+            $('#total').html(total.toFixed(2));
+            // $('#total').html(valor - valor_restar);  
+          }
+        else if($(this).val() == 0){
+            let precio_total= $('#cantidad').val() * $('#precio_publico').html();
+        console.log(precio_total);
+        $('#total').html(precio_total);
+        }
+
+    // let descuento=$(this).val();
+    // let prueba = total - descuento;
+    // console.log(prueba);
+    // if(descuento == 0 || descuento == isNaN()){
+    //     let precio_total= $('#cantidad').val() * $('#precio_publico').html();
+    //     console.log(precio_total);
+    //     $('#total').html(precio_total);
+    // }
+    // $('#total').html(prueba);
+
+    });
+
+
     $('.agregar').on('click',function(e){
         e.preventDefault();
         let descripcion = $('.descripcion').html();
@@ -195,6 +245,7 @@ $(document).ready(function() {
         let precio_publico = $('#precio_publico').html();
         let stock = $('#stock').html();
         let cantidad = $('#cantidad').val();
+        let descuento = $('#descuento').val();
         let total = $('#total').html();
         // let descripcion = $('#descripcion').val();
         // let gramos = $('#gramos').html();
@@ -213,13 +264,14 @@ $(document).ready(function() {
             precio_publico:precio_publico,
             stock:stock,
             cantidad:cantidad,
+            descuento:descuento,
             total:total
         }
         console.log(data);
 
         $.ajax({
             type: "POST",
-            url: "http://192.168.0.100/farmacia/cobrar/recibo",
+            url: "http://192.168.0.21/farmacia/cobrar/recibo",
             data: data,
             dataType: "dataType",
             success: function (response) {
@@ -236,13 +288,15 @@ $(document).ready(function() {
 
     	$.ajax({
 		type:"POST",
-		url:"http://192.168.0.100/farmacia/cobrar/visualizar",
+		url:"http://192.168.0.21/farmacia/cobrar/visualizar",
 		success:function(r){
             console.log(r);
             $('#tablaDatos').html(r);
-            // let aver = parseInt($('.sumar').html()
-            
-            
+            var sum=0;
+            $('.sumame').each(function() {  
+             sum += parseFloat($(this).text().replace(/,/g, ''), 10);  
+            }); 
+            $('.subtotal').val(sum.toFixed(2));
 		}
     });
 });
@@ -253,13 +307,38 @@ peticion.addEventListener('click', e =>{
 
     $.ajax({
     type:"POST",
-    url:"http://192.168.0.100/farmacia/cobrar/visualizar",
+    url:"http://192.168.0.21/farmacia/cobrar/visualizar",
     success:function(r){
         console.log(r);
         $('#tablaDatos').html(r);
-        
+        var sum=0;
+            $('.sumame').each(function() {  
+             sum += parseFloat($(this).text().replace(/,/g, ''), 10);  
+            }); 
+            $('.subtotal').val(sum.toFixed(2));
     }
 });
+});
+
+//-------------------------------------SUBTOTAL---------------------------------------
+$('.descuento').keyup(function (e) { 
+    e.preventDefault();
+    let descuento=$(this).val();
+    // console.log(mostrar);
+
+    if(descuento == 100){
+        $('total').val("Producto gratis");
+    }
+
+    let subtotal= $('.subtotal').val();
+    let total=(subtotal - (subtotal / 100) * descuento);
+
+    // let total= subtotal -(subtotal * mostrar);
+
+    $('.total').val(total.toFixed(2));
+
+    
+    // console.log(total);
 });
 
    
@@ -319,7 +398,7 @@ $('.eliminame').on('click', function(e){
 
         $.ajax({
             type: "POST",
-            url: "http://192.168.0.100/farmacia/cobrar/eliminarProducto",
+            url: "http://192.168.0.21/farmacia/cobrar/eliminarProducto",
             data: data,
             dataType: "dataType",
             success: function (r) {

@@ -48,17 +48,17 @@
       color: #1A8CFF; } */
     /*     .table-rwd td:after {
       content: ".00"; } */
-    .table-rwd td:first-of-type {
+    /* .table-rwd td:first-of-type {
         text-align: left;
-    }
+    } */
 
-    .table-rwd td:first-of-type:before {
+    /* .table-rwd td:first-of-type:before {
         content: "";
-    }
+    } */
 
-    .table-rwd td:first-of-type:after {
+    /* .table-rwd td:first-of-type:after {
         content: "";
-    }
+    } */
 
     /* .table-rwd tr:hover {
         background: rgba(181, 213, 144, 0.2);
@@ -68,10 +68,10 @@
         background: rgba(181, 213, 144, 0.2);
     } */
 
-    .table-container {
+    /* .table-container {
         overflow-x: auto;
-    }
-
+    } */
+/* 
     .table-rwd {
         min-width: 900px;
     }
@@ -93,7 +93,7 @@
 
     .table-rwd tr:nth-child(2) td:first-child {
         box-shadow: 0 -2.7em 0 -6px #1A8CFF, -6px -2.7em 0 -6px #1A8CFF;
-    }
+    } */
 </style>
 
 <div class="form-group container mt-4 mb-4 d-flex justify-content-center">
@@ -112,6 +112,7 @@
 
 
 <!-- <input type="text" id="gramos"> -->
+
 <table class="table-rwd">
     <thead>
         <tr>
@@ -122,6 +123,7 @@
             <th>Tipo</th>
             <th>Stock</th>
             <th>Cantidad</th>
+            <th>Descuento</th>
             <th>Precio Total</th>
             <th>Acciones</th>
         </tr>
@@ -133,7 +135,8 @@
             <td id="precio_publico"></td>
             <td id="tipo"></td>
             <td id="stock"></td>
-            <td> <input type="text" class="peque" id="cantidad" disabled> </td>
+            <td> <input type="text" require class="peque" id="cantidad" disabled> </td>
+            <td> <input type="text" require class="peque" id="descuento" disabled> </td>
             <td id="total"></td>
             <td> <a class="ocultar oculto agregar" href="">agregar</a> </td>
 
@@ -220,9 +223,10 @@
 </section>
 </div> -->
 
-<div class="scroll2">
+
     <section class="container">
         <div class="table-responsive mt-4">
+        <div class="scroll2">
             <table <table class="table-rwd">
                 <thead>
                     <tr>
@@ -241,7 +245,6 @@
 
                 </tbody>
             </table>
-            </form>
         </div>
     </section>
 </div>
@@ -267,17 +270,17 @@
 
 <section>
     <div class="container">
-        <h4 class="text-center">Subtotal</h4>
+        <h4 class="text-center">TOTAL</h4>
         <div class="input-group mb-3">
-            <input type="text" class="form-control" placeholder="" aria-label="Username" aria-describedby="basic-addon1">
+            <input type="text" disabled class="form-control subtotal" placeholder="" aria-label="Username" aria-describedby="basic-addon1">
         </div>
-        <div class="d-flex justify-content-end">
-            <h4 class="mr-4">Descuento</h4><input type="text" placeholder="Subtotal"><span>%</span>
+        <!-- <div class="d-flex justify-content-end">
+            <h4 class="mr-4">Descuento</h4><input type="number" class="descuento" placeholder="Subtotal" ><span>%</span>
         </div>
         <h4 class="text-center">Total</h4>
         <div class="input-group mb-3">
-            <input type="text" class="form-control" placeholder="" aria-label="Username" aria-describedby="basic-addon1">
-        </div>
+            <input type="text" class="form-control total " placeholder="" aria-label="Username" aria-describedby="basic-addon1">
+        </div> -->
         <div class="d-flex justify-content-center">
             <input type="button" class="btn btn-primary mr-4" value="Factura">
             <input type="button" class="btn btn-success" value="Cobrar">

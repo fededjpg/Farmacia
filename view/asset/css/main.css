@@ -8,6 +8,7 @@ display: flex;
 .scroll2 .fa-trash{
   color: #ffffff;
 }
+
 .scroll2 .eliminame{
 color: #ffffff;
 width: 80px;
@@ -48,10 +49,10 @@ body#contacto ul.menu li:nth-child(4) a {
 }
 .scroll2{
   overflow: scroll;
-  height: 400px;
+  height: 300px;
 }
 .general{
-  height: 100vh;
+  height: 81vh;
 }
 .navbar-collapse{
   color: #fff;

@@ -53,6 +53,7 @@ exit;
             $precio_publico=$_POST['precio_publico'];
             $stock=$_POST['stock'];
             $cantidad=$_POST['cantidad'];
+            $descuento = $_POST['descuento'];
             $total=$_POST['total'];
 
             $prueba = new Prueba();
@@ -63,6 +64,7 @@ exit;
             $prueba->setPrecio_publico($precio_publico);
             $prueba->setStock($stock);
             $prueba->setCantidad($cantidad);
+            $prueba->setDescuento($descuento);
             $prueba->setTotal($total);
             $prueba->inserta();
         }
@@ -88,7 +90,7 @@ exit;
                 <td>'.$value['precio_publico'].'</td>
                 <td>'.$value['stock'].'</td>
                 <td>'.$value['cantidad'].'</td>
-                <td class="sumar">'.$value['total'].'</td>
+                <td class="sumame">'.$value['total'].'</td>
             </tr>
                 ';
             }

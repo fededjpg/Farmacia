@@ -9,6 +9,7 @@ class Prueba{
         public $precio_publico;
         public $stock;
         public $cantidad;
+        public $descuento;
         public $total;
         private $db;
 
@@ -100,6 +101,14 @@ class Prueba{
                 return $this->cantidad = $cantidad;
 
         }
+        public function getDescuento()
+        {
+                return $this->descuento;
+        }
+        public function setDescuento($descuento)
+        {
+                return $this->descuento = $descuento;
+        }
 
         public function getTotal()
         {
@@ -125,10 +134,10 @@ class Prueba{
                 return $respuesta;
         }
         public function inserta(){
-                $insert="INSERT INTO prueba VALUES (NULL, '{$this->getDescripcion()}', '{$this->getGramos()}', '{$this->getContenido()}', '{$this->getTipo()}', '{$this->getPrecio_publico()}', '{$this->getStock()}', '{$this->getCantidad()}', '{$this->getTotal()}')";
+                $insert="INSERT INTO prueba VALUES (NULL, '{$this->getDescripcion()}', '{$this->getGramos()}', '{$this->getContenido()}', '{$this->getTipo()}', '{$this->getPrecio_publico()}', '{$this->getStock()}', '{$this->getCantidad()}', {$this->getDescuento()}, '{$this->getTotal()}')";
                 $resultado = $this->db->query($insert);
 
-                var_dump($insert);
+                // var_dump($insert);
                 return $resultado;
 
 
@@ -157,4 +166,3 @@ class Prueba{
         }
 
 }
-?>
