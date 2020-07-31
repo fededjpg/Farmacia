@@ -140,5 +140,12 @@ class Usuario{
         return $resultado;
     }
 
+    public function login(){   
+       $query = "SELECT * FROM usuario where usuario = '{$this->getUsuario()}' ";
+        $script=$this->db->query($query);
+        
+        return $script;
+    }
+
 
 }

@@ -56,7 +56,7 @@
                             <div class="form-group row">
                                 <label for="" class="col-md-3 text-md-right col-form-label">Contraseña:</label>
                                 <div class="col-md-6">
-                                    <input type="text" name="contra" value="<?= $cajero->contraseña ?>" class="form-control" placeholder="" aria-describedby="helpId">
+                                    <input type="password" name="contra" value="" class="form-control" placeholder="" aria-describedby="helpId">
                                 </div>
                             </div>
                             <div class="form-group col">

@@ -116,6 +116,7 @@
 <table class="table-rwd">
     <thead>
         <tr>
+            <th>Clave</th>
             <th>Descripcion</th>
             <th>Gramos</th>
             <th>Contenido</th>
@@ -129,6 +130,7 @@
         </tr>
     <tbody>
         <tr>
+            <td id="clave"></td>
             <td class="descripcion"></td>
             <td id="gramos"></td>
             <td id="contenido"></td>
@@ -283,7 +285,9 @@
         </div> -->
         <div class="d-flex justify-content-center">
             <input type="button" class="btn btn-primary mr-4" value="Factura">
-            <input type="button" class="btn btn-success" value="Cobrar">
+            <form action="<?=base_url?>cobrar/btnCobrar"> 
+                <input type="submit" class="btn btn-success" value="Cobrar">
+            </form>
         </div>
     </div>
 </section>

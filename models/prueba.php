@@ -2,6 +2,7 @@
 
 class Prueba{
         public $id;
+        public $id_producto;
         public $descripcion;
         public $gramos;
         public $contenido;
@@ -20,13 +21,23 @@ class Prueba{
             {
                     return $this->id;
             }
-    
-    
+            
+
             public function setId($id)
             {
                     return $this->id = $id;
             }
 
+            public function getId_producto()
+            {
+                return $this->id_producto;
+            }
+        
+            public function setId_producto($id_producto)
+            {
+                return $this->id_producto = $id_producto;
+        
+            }
 
         public function getDescripcion()
         {
@@ -134,7 +145,7 @@ class Prueba{
                 return $respuesta;
         }
         public function inserta(){
-                $insert="INSERT INTO prueba VALUES (NULL, '{$this->getDescripcion()}', '{$this->getGramos()}', '{$this->getContenido()}', '{$this->getTipo()}', '{$this->getPrecio_publico()}', '{$this->getStock()}', '{$this->getCantidad()}', {$this->getDescuento()}, '{$this->getTotal()}')";
+                $insert="INSERT INTO prueba VALUES (NULL, {$this->getId_producto()}, '{$this->getDescripcion()}', '{$this->getGramos()}', '{$this->getContenido()}', '{$this->getTipo()}', '{$this->getPrecio_publico()}', '{$this->getStock()}', '{$this->getCantidad()}', {$this->getDescuento()}, '{$this->getTotal()}')";
                 $resultado = $this->db->query($insert);
 
                 // var_dump($insert);
@@ -163,6 +174,33 @@ class Prueba{
 
         // return $respuesta2;
         return $respuesta;
+        }
+
+        public function cobrar(){
+                $sql="INSERT INTO historial_farmacia (folio, descripcion, gramos, contenido, tipo, precio_publico, cantidad, descuento, total) 
+                SELECT id, descripcion, gramos, contenido, tipo, precio_publico,cantidad, descuento, total FROM prueba";
+
+                $sql1=" UPDATE  productos p, prueba r SET p.stock = p.stock - r.cantidad 
+               WHERE r.id_producto=p.id_producto";
+
+                $sql2="DELETE FROM prueba";
+
+                $respuesta=$this->db->query($sql);
+
+                $respuesta2=$this->db->query($sql1);
+               
+                $respuesta3=$this->db->query($sql2);
+
+               
+                // return $respuesta2;
+                return $respuesta;
+
+                // return $respuesta2;
+                return $respuesta2;
+
+                 // return $respuesta2;
+                 return $respuesta3;
+
         }
 
 }

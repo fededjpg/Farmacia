@@ -13,19 +13,7 @@ class CobrarController{
                  
         }
 
-        public function  insertHistorial(){
-            $id_producto= $_GET['id_producto'];
-            // $id_inventario= $_GET['id_inventario'];
-            $historial = new Historial();
-            $historial->setId_producto($id_producto);
-            $datos=$historial->showAllHistorial();
-            
-            header("Location:". base_url. "cobrar/index");
-
-            require 'view/cobrar/index.php';
-
-
-        }
+        
 
         public function buscar(){
             $buscar=$_POST['buscar'];
@@ -46,6 +34,7 @@ exit;
         }
 
         public function recibo(){
+            $clave = $_POST['clave'];
             $descripcion=$_POST['descripcion'];
             $gramos=$_POST['gramos'];
             $contenido=$_POST['contenido'];
@@ -57,6 +46,7 @@ exit;
             $total=$_POST['total'];
 
             $prueba = new Prueba();
+            $prueba->setId_producto($clave);
             $prueba->setDescripcion($descripcion);
             $prueba->setGramos($gramos);
             $prueba->setContenido($contenido);
@@ -110,7 +100,15 @@ exit;
 
             return 1;
         }
-        
 
+        public function  btnCobrar(){
+
+
+            $prueba = new Prueba();
+            $prueba->cobrar();
+            
+            header("Location:". base_url. "cobrar/index");
+
+        }
 
 }

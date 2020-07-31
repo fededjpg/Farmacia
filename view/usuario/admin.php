@@ -56,7 +56,7 @@ $destroy->deleteSession('success');
               </div>
               <div class="form-group col-md-6">
                 <label for="recipient-name" class="col-form-label">Contraseña</label>
-                <input type="text" class="form-control" id="date" name="contra">
+                <input type="password" class="form-control" id="date" name="contra">
               </div>
             </div>
             <div class="modal-footer">

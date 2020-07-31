@@ -121,6 +121,7 @@ $(document).ready(function() {
                 console.log(response);
                 if(response != 'error'){
                 let info= JSON.parse(response);
+                $('#clave').html(info.id_producto);
                 $('.descripcion').html(info.descripcion);
                 $('#gramos').html(info.gramos);
                 $('#contenido').html(info.contenido);
@@ -238,6 +239,7 @@ $(document).ready(function() {
 
     $('.agregar').on('click',function(e){
         e.preventDefault();
+        let clave= $('#clave').html();
         let descripcion = $('.descripcion').html();
         let gramos = $('#gramos').html();
         let contenido = $('#contenido').html();
@@ -257,6 +259,7 @@ $(document).ready(function() {
         // let total = $('#total').html();
 
         data={
+            clave:clave,       
             descripcion:descripcion,
             gramos:gramos,
             contenido:contenido,

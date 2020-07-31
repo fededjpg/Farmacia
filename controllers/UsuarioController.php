@@ -22,14 +22,15 @@ class UsuarioController{
         $apellido=$_POST['apellido'];
         $fecha=$_POST['fechaNac'];
         $telefono=$_POST['telefono'];
-        $contra=$_POST['contra'];
+        // $contra=$_POST['contra'];
+        $passwd=password_hash($_POST['contra'], PASSWORD_DEFAULT, ['cost' => 15]);
 
         $user->setUsuario($usuario);
         $user->setNombre($nombre);
         $user->setApellido($apellido);
         $user->setFechaNac($fecha);
         $user->setTelefono($telefono);
-        $user->setContra($contra);
+        $user->setContra($passwd);
         $user->addCajero();
         
         header("Location:".base_url."usuario/cajero");
@@ -43,14 +44,15 @@ class UsuarioController{
         $apellido=$_POST['apellido'];
         $fecha=$_POST['fechaNac'];
         $telefono=$_POST['telefono'];
-        $contra=$_POST['contra'];
+        // $contra=$_POST['contra'];
+        $passwd=password_hash($_POST['contra'], PASSWORD_DEFAULT, ['cost' => 15]);
 
         $user->setUsuario($usuario);
         $user->setNombre($nombre);
         $user->setApellido($apellido);
         $user->setFechaNac($fecha);
         $user->setTelefono($telefono);
-        $user->setContra($contra);
+        $user->setContra($passwd);
         $user->addAdmin();
         
         header("Location:".base_url."usuario/admin");
@@ -77,7 +79,9 @@ class UsuarioController{
         $fecha=$_POST['fechaNac'];
         $telefono=$_POST['telefono'];
         $seleccion=$_POST['seleccion'];
-        $contra=$_POST['contra'];
+        // $contra=$_POST['contra'];
+
+        $passwd=password_hash($_POST['contra'], PASSWORD_DEFAULT, ['cost' => 15]);
 
         $user->setId($id);
         $user->setUsuario($usuario);
@@ -86,7 +90,7 @@ class UsuarioController{
         $user->setFechaNac($fecha);
         $user->setTelefono($telefono);
         $user->setRol($seleccion);
-        $user->setContra($contra);
+        $user->setContra($passwd);
         $user->updateCajero();
 
         header("Location:".base_url."usuario/cajero");
@@ -114,8 +118,8 @@ class UsuarioController{
         $fecha=$_POST['fechaNac'];
         $telefono=$_POST['telefono'];
         $seleccion=$_POST['seleccion'];
-        $contra=$_POST['contra'];
-
+        // $contra=$_POST['contra'];
+        $passwd=password_hash($_POST['contra'], PASSWORD_DEFAULT, ['cost' => 15]);
         $user->setId($id);
         $user->setUsuario($usuario);
         $user->setNombre($nombre);
@@ -123,7 +127,7 @@ class UsuarioController{
         $user->setFechaNac($fecha);
         $user->setTelefono($telefono);
         $user->setRol($seleccion);
-        $user->setContra($contra);
+        $user->setContra($passwd);
         $user->updateAdmin();
 
         header("Location:".base_url."usuario/admin");
