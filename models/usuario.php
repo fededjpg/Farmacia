@@ -123,7 +123,13 @@ class Usuario{
     }
 
     public function updateCajero(){
-        $consulta = "UPDATE usuario SET id= {$this->getId()}, usuario = '{$this->getUsuario()}', nombre= '{$this->getNombre()}', apellido = '{$this->getApellido()}', f_nacimiento= '{$this->getFechaNac()}', telefono = {$this->getTelefono()},contraseña = '{$this->getContra()}',  rol = '{$this->getRol()}' WHERE id = {$this->getId()} ";
+        $consulta = "UPDATE usuario SET id= {$this->getId()}, usuario = '{$this->getUsuario()}', nombre= '{$this->getNombre()}', apellido = '{$this->getApellido()}', f_nacimiento= '{$this->getFechaNac()}', telefono = {$this->getTelefono()},  rol = '{$this->getRol()}'";
+
+        if($this->getContra() != "" ){
+            $consulta .= ", contraseña = '{$this->getContra()}'";
+        }
+        $consulta.= "WHERE id = {$this->getId()}";
+
         $resultado=$this->db->query($consulta);
         return $resultado;
     }
@@ -135,7 +141,16 @@ class Usuario{
     }
 
     public function updateAdmin(){
-        $consulta = "UPDATE usuario SET id= {$this->getId()}, usuario = '{$this->getUsuario()}', nombre= '{$this->getNombre()}', apellido = '{$this->getApellido()}', f_nacimiento= '{$this->getFechaNac()}', telefono = {$this->getTelefono()},contraseña = '{$this->getContra()}',  rol = '{$this->getRol()}' WHERE id = {$this->getId()} ";
+        $consulta = "UPDATE usuario SET id= {$this->getId()}, usuario = '{$this->getUsuario()}', nombre= '{$this->getNombre()}', apellido = '{$this->getApellido()}', f_nacimiento= '{$this->getFechaNac()}', telefono = {$this->getTelefono()},rol = '{$this->getRol()}'";
+        if($this->getContra() != "" ){
+            $consulta .= ", contraseña = '{$this->getContra()}'";
+        }
+        $consulta.= "WHERE id = {$this->getId()}";
+
+        
+        // var_dump($consulta);
+        // die();
+        
         $resultado=$this->db->query($consulta);
         return $resultado;
     }

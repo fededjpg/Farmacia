@@ -24,17 +24,20 @@
     <li class="nav-item">
         <a class="nav-link" href="<?=base_url?>bienvenida/index">Inicio</a>
       </li>
+      
+      <?php if($_SESSION['userRol'] == "admin"): ?>
       <li class="nav-item">
         <a class="nav-link" href="<?=base_url?>entrada/index">Entradas</a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="<?=base_url?>inventario/index">Inventario</a>
       </li>
-      <li class="nav-item">
-        <a class="nav-link" href="<?=base_url?>cobrar/index">Cobrar</a>
-      </li>
+
       <li class="nav-item">
         <a class="nav-link" href="<?=base_url?>registro/index">Resgistro de Productos</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="<?=base_url?>historial/index">Historial</a>
       </li>
       
       <li class="nav-item dropdown">
@@ -49,10 +52,20 @@
     </ul>
     <div class="d-flex justify-content-end">
           <!-- <div class="mr-auto p2 "> -->
-        <a class="nav-link" href="#"><i class="fas fa-power-off"></i></a>
+        <a class="nav-link" href="<?=base_url?>usuario/deleteSessionLogin"><i class="fas fa-power-off"></i></a>
         <!-- </div> -->
         </div>
   </div>
+      <?php else: ?>
+        <li class="nav-item">
+        <a class="nav-link" href="<?=base_url?>cobrar/index">Cobrar</a>
+      </li>
+      <div class="d-flex justify-content-end">
+          <!-- <div class="mr-auto p2 "> -->
+        <a class="nav-link" href="<?=base_url?>usuario/deleteSessionLogin"><i class="fas fa-power-off"></i></a>
+        <!-- </div> -->
+        </div>
+      <?php endif; ?>
 </nav>
 <div class="general">
 

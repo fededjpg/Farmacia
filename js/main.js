@@ -11,6 +11,99 @@ $(document).ready(function() {
         $('#mainMenu li').removeClass('active');
         $(this).parent().addClass('active');
     });
+ //   $('#saludar').on('click',function(){
+    //       alert("hola");
+    //   })
+
+
+    let vamonosPerras = document.querySelector("#corte");
+    let totaleshion = document.querySelector("#totaleshion");
+    //MOSTRAR LOS DATOS 
+ vamonosPerras.addEventListener('click', e =>{
+
+           
+        let fechas = document.querySelector('#fechas').value;
+        let fechass =  document.querySelector('#fechass').value;
+        let corteUsuario=  document.querySelector('#corteUsuario').value;
+
+        console.log(fechas);
+        console.log(fechass);
+        console.log(corteUsuario);
+
+        data={
+            fechas:fechas,
+            fechass:fechass,
+            corteUsuario:corteUsuario
+        }
+   
+           $.ajax({
+           type:"POST",
+           data: data,
+           url:"http://192.168.0.21/farmacia/historial/corte",
+           success:function(r){
+            let info= JSON.parse(r);
+            console.log(info.suma);
+            totaleshion.innerHTML= `${info.suma}`;
+
+           }
+       });
+   });
+   
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    // $('#corte').on('click',function (e) { 
+    //     e.preventDefault();
+        
+    //     let fechas = $('#fechas').val();
+    //     let fechass = $('#fechass').val();
+    //     let corteUsuario= $('#corteUsuario').val();
+
+    //     // console.log(fecha1);
+    //     // console.log(fecha2);
+    //     // console.log(corteUsuario);
+
+    //     data={
+    //         fechas:fechas,
+    //         fechass:fechass,
+    //         corteUsuario:corteUsuario
+    //     }
+
+    //     console.log(data);
+
+    //     $.ajax({
+    //         type: "POST",
+    //         url: "http://192.168.0.21/farmacia/historial/corte",
+    //         data: data,
+    //         dataType: "dataType",
+    //         success: function (response) {
+    //             console.log(response);
+    //             let info= JSON.parse(response);
+    //             console.log(info.suma);
+    //         }
+    //     });
+        
+    // });
 
     // $('#buscarProducto').keyup(function (e) { 
     // let producto = $(this).val();

@@ -1,3 +1,13 @@
+<?php 
+
+if(isset($_SESSION['user'])){
+}
+else{
+    return header("Location:". base_url);
+    exit();
+}
+?>
+
 <?php require_once 'view/layout/header.php'; ?>
 
 <h1 class="text-center">Registro de Productos</h1>

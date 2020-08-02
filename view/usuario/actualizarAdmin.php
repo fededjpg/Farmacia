@@ -1,3 +1,12 @@
+<?php 
+
+if(isset($_SESSION['user'])){
+}
+else{
+    return header("Location:". base_url);
+    exit();
+}
+?>
 <?php require_once 'view/layout/header.php' ?>
 
 <?php while ($admin = $admins->fetch_object()) : ?>

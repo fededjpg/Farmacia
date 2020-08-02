@@ -79,9 +79,14 @@ class UsuarioController{
         $fecha=$_POST['fechaNac'];
         $telefono=$_POST['telefono'];
         $seleccion=$_POST['seleccion'];
-        // $contra=$_POST['contra'];
+        $contra=$_POST['contra'];
 
-        $passwd=password_hash($_POST['contra'], PASSWORD_DEFAULT, ['cost' => 15]);
+        $passwd=password_hash($_POST['contra'], PASSWORD_DEFAULT, ['cost' => 15]);     $contra=$_POST['contra'];
+       
+        if( !empty($contra)){
+            $passwd=password_hash($_POST['contra'], PASSWORD_DEFAULT, ['cost' => 15]);
+            $user->setContra($passwd);
+        }
 
         $user->setId($id);
         $user->setUsuario($usuario);
@@ -90,7 +95,6 @@ class UsuarioController{
         $user->setFechaNac($fecha);
         $user->setTelefono($telefono);
         $user->setRol($seleccion);
-        $user->setContra($passwd);
         $user->updateCajero();
 
         header("Location:".base_url."usuario/cajero");
@@ -118,8 +122,13 @@ class UsuarioController{
         $fecha=$_POST['fechaNac'];
         $telefono=$_POST['telefono'];
         $seleccion=$_POST['seleccion'];
-        // $contra=$_POST['contra'];
-        $passwd=password_hash($_POST['contra'], PASSWORD_DEFAULT, ['cost' => 15]);
+        $contra=$_POST['contra'];
+       
+        if( !empty($contra)){
+            $passwd=password_hash($_POST['contra'], PASSWORD_DEFAULT, ['cost' => 15]);
+            $user->setContra($passwd);
+
+        }
         $user->setId($id);
         $user->setUsuario($usuario);
         $user->setNombre($nombre);
@@ -127,11 +136,17 @@ class UsuarioController{
         $user->setFechaNac($fecha);
         $user->setTelefono($telefono);
         $user->setRol($seleccion);
-        $user->setContra($passwd);
         $user->updateAdmin();
 
         header("Location:".base_url."usuario/admin");
         $_SESSION['success']="El Administrador ". $user->getUsuario() . " se actualizo satisfactoriamente";
 
+    }
+
+    
+    public function deleteSessionLogin(){
+        session_destroy();
+        header("location:".base_url);
+        exit();
     }
 }

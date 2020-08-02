@@ -4,7 +4,9 @@
 form label{
 display: flex;
 } */
-
+.container .fa-money-bill-wave{
+  color: #fff;
+}
 .scroll2 .fa-trash{
   color: #ffffff;
 }

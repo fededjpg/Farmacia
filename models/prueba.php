@@ -145,12 +145,36 @@ class Prueba{
                 return $respuesta;
         }
         public function inserta(){
-                $insert="INSERT INTO prueba VALUES (NULL, {$this->getId_producto()}, '{$this->getDescripcion()}', '{$this->getGramos()}', '{$this->getContenido()}', '{$this->getTipo()}', '{$this->getPrecio_publico()}', '{$this->getStock()}', '{$this->getCantidad()}', {$this->getDescuento()}, '{$this->getTotal()}')";
-                $resultado = $this->db->query($insert);
+               
+                $select="SELECT id_producto FROM prueba WHERE id_producto= {$this->getId_producto()}";
 
-                // var_dump($insert);
+                $resultado2 = $this->db->query($select);
+
+                
+                
+                if($resultado2->num_rows > 0){
+                
+                        $update="UPDATE prueba SET cantidad = cantidad + {$this->getCantidad()}, total = precio_publico * cantidad WHERE id_producto = {$this->getId_producto()}";
+
+                        $resultado1 = $this->db->query($update);
+
+                        //  var_dump($insert);
+                        
+
+                } 
+                
+                else {
+                        $insert="INSERT INTO prueba VALUES (NULL, {$this->getId_producto()}, '{$this->getDescripcion()}', '{$this->getGramos()}', '{$this->getContenido()}', '{$this->getTipo()}', '{$this->getPrecio_publico()}', '{$this->getStock()}', {$this->getCantidad()}, {$this->getDescuento()}, '{$this->getTotal()}')";
+                
+                        $resultado = $this->db->query($insert);
+
+                         // var_dump($insert);
+                         
+                }   
+                return $resultado2;
+                return $resultado1;
                 return $resultado;
-
+               
 
         }
 
@@ -177,8 +201,8 @@ class Prueba{
         }
 
         public function cobrar(){
-                $sql="INSERT INTO historial_farmacia (folio, descripcion, gramos, contenido, tipo, precio_publico, cantidad, descuento, total) 
-                SELECT id, descripcion, gramos, contenido, tipo, precio_publico,cantidad, descuento, total FROM prueba";
+                $sql="INSERT INTO historial_farmacia (folio, fecha, descripcion, gramos, contenido, tipo, precio_publico, cantidad, descuento, total) 
+                SELECT id, CURDATE(), descripcion, gramos, contenido, tipo, precio_publico,cantidad, descuento, total FROM prueba";
 
                 $sql1=" UPDATE  productos p, prueba r SET p.stock = p.stock - r.cantidad 
                WHERE r.id_producto=p.id_producto";

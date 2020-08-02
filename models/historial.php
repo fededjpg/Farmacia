@@ -3,7 +3,8 @@
 class Historial{
     public $numero;
     public $folio;
-    public $id_producto;
+    public $fecha2;
+    public $fecha;
     public $usuario;
     public $cantidad;
     public $metodo_pago;
@@ -44,6 +45,31 @@ class Historial{
 
 
     }
+
+    public function getFecha()
+    {
+        return $this->fecha;
+    }
+
+    
+    public function setFecha($fecha)
+    {
+        return $this->fecha = $fecha;
+
+    }
+
+    public function getFecha2()
+    {
+        return $this->fecha2;
+    }
+
+    public function setFecha2($fecha2)
+    {
+        return $this->fecha2 = $fecha2;
+
+    }
+
+
     public function getUsuario()
     {
         return $this->usuario;
@@ -94,19 +120,21 @@ class Historial{
         return $this->total = $total;
     }
 
-    public function showAllHistorial(){
-        $query="INSERT INTO historial VALUES (NULL, 1, {$this->getId_producto()}, 'usuario', 3, 'tarjeta', 0, 97)";
+    public function showCorte(){
+    $query="SELECT sum(total) as suma FROM historial_farmacia WHERE fecha= '{$this->getFecha()}' AND fecha= '{$this->getFecha2()}' AND usuario= '{$this->getUsuario()}'";
 
-        $resultado = $this->db->query($query);
-
-        return $resultado;
-
+    $resultado = $this->db->query($query);
+    return $resultado;
     }
 
-    public function visualizar(){
+    public function showAllHistorial(){
        
-        $query="SELECT folio,id_producto,usuario,cantidad FROM historial WHERE numero=4";
+        $query="SELECT * FROM historial_farmacia";
         $resultado= $this->db->query($query);
         return $resultado;
     }
+
+    
+
+   
 }

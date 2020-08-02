@@ -32,7 +32,7 @@
 	<div class="limiter">
 		<div class="container-login100">
 			<div class="wrap-login100 p-l-55 p-r-55 p-t-65 p-b-50">
-				<form action="<?=base_url?>login/login" method="post" class="login100-form validate-form">
+				<form id="form_registro" class="100-form validate-form">
 					<span class="login100-form-title p-b-33">
 						Farmacia
 					</span>
@@ -50,7 +50,7 @@
 					</div>
 
 					<div class="container-login100-form-btn m-t-20">
-						<button class="login100-form-btn">
+						<button type="submit" class="login100-form-btn" id="registrar" >
 							Sign in
 						</button>
 					</div>
@@ -64,7 +64,9 @@
 							Username / Password?
 						</a>
 					</div>
-
+					<div id="respuesta">
+					
+					</div>
 					<div class="text-center">
 						<span class="txt1">
 							Create an account?
