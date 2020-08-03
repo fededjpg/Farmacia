@@ -124,9 +124,29 @@ class Inventario{
         // group by p.id_producto
 
         $resultado= $this->db->query($consult);
+        $consulta = "SELECT MAX(folio) as numero FROM historial_farmacia";
+
+        $respuesta2=$this->db->query($consulta);
+
+        $res=$respuesta2->fetch_assoc();
+        
+        $_SESSION['numeral']= $res['numero']+1;
         return $resultado;   
 
     }
+
+    public function missingExport(){
+
+        $query = "SELECT  id_producto, descripcion, gramos, contenido,tipo, precio_proveedor, stock
+        FROM productos WHERE stock <= 3 AND descripcion != 'caja' AND descripcion != 'retiro' ";
+
+        $resultado= $this->db->query($query);
+        return $resultado;
+    }
+
+
+
+
     public function showAllProducto(){
     $consult="SELECT * FROM productos where descripcion =  '{$this->getDescripcion()}'";
         // $consult = "SELECT i.id_inventario, p.id_producto, p.descripcion, p.gramos, p.contenido, p.precio_publico, p.tipo, i.stock

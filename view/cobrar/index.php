@@ -136,6 +136,7 @@ if($_SESSION['userRol'] == 'admin'){
 <table class="table-rwd">
     <thead>
         <tr>
+            <th>Folio</th>
             <th>Clave</th>
             <th>Descripcion</th>
             <th>Gramos</th>
@@ -150,6 +151,7 @@ if($_SESSION['userRol'] == 'admin'){
         </tr>
     <tbody>
         <tr>
+            <td id="folio"><?=$_SESSION['numeral']?></td>
             <td id="clave"></td>
             <td class="descripcion"></td>
             <td id="gramos"></td>
@@ -256,6 +258,7 @@ if($_SESSION['userRol'] == 'admin'){
                 <thead>
                     <tr>
                         <th class="centrar"><a href="" class="eliminame btn btn btn-danger petition"><i class="fas fa-trash"></i></a></th>
+                        <th>Folio</th>
                         <th>Descripción</th>
                         <th>Gramos</th>
                         <th>Contenido</th>
@@ -311,9 +314,11 @@ if($_SESSION['userRol'] == 'admin'){
         </div> -->
         <div class="d-flex justify-content-center">
             <form action="<?=base_url?>cobrar/btnCobrar"> 
-                <input type="submit" class="btn btn-success" id="cobrar" value="Cobrar">
+                <input type="submit" class="btn btn-success" name="cobrar" id="cobrar" value="Cobrar">
             </form>
         </div>
     </div>
 </section>
+
+
 <?php require_once 'view/layout/footer.php'; ?>

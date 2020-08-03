@@ -15,7 +15,16 @@ class InventarioController{
     public function exportar(){
         $inventario = new Inventario();
         $inventarios = $inventario->showAllInventario();
+        
         require_once 'generarpdf/index.php';
+    }
+
+    public function export(){
+        $inventario = new Inventario();
+
+        $inventarios = $inventario->missingExport();
+
+        require_once 'generarpdf/indice2.php';
     }
 
     public function actualizar(){

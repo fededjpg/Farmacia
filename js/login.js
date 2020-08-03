@@ -99,7 +99,7 @@ login.addEventListener('submit', e => {
     //console.log(registrar.get('user'), registrar.get('passwd'));
     //draw.innerHTML= `<img src="preload.gif" alt="">`;
     document.querySelector('.carga').classList.add('visible');
-    fetch('http://192.168.0.06/farmacia/login/login', {
+    fetch('http://192.168.0.21/farmacia/login/login', {
         method: "POST",
         body: registrar
     })
@@ -115,10 +115,10 @@ login.addEventListener('submit', e => {
             console.log(data);
             document.querySelector('.carga').classList.remove('visible');
             if (data == 1) {
-                location.href='http://192.168.0.06/farmacia/cobrar/index'; 
+                location.href='http://192.168.0.21/farmacia/cobrar/index'; 
             }
             if(data == 2){
-                location.href='http://192.168.0.06/farmacia/bienvenida/index'; 
+                location.href='http://192.168.0.21/farmacia/bienvenida/index'; 
             }
             if(data==0){
             response.innerHTML=`<p class="alert alert-danger" role="alert">Usuario o Contraseña Incorrecta</p>`;     

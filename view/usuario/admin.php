@@ -93,7 +93,6 @@ $destroy->deleteSession('success');
             <th>Nombre</th>
             <th>Apellido</th>
             <th>Fecha Nacimiento</th>
-            <th>Contraseña</th>
             <th>Acciones</th>
           </tr>
         </thead>
@@ -104,7 +103,6 @@ $destroy->deleteSession('success');
             <td><?=$admin->nombre?></td>
             <td><?=$admin->apellido?></td>
             <td><?=$admin->f_nacimiento?></td>
-            <td><?=$admin->contraseña?></td>
             <td><a href="<?=base_url?>usuario/actualizarAdmin&id=<?=$admin->id?>"><i class="far fa-edit"></i></a></td>
         </tr>
   <?php endwhile; ?>

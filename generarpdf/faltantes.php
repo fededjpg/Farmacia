@@ -21,9 +21,9 @@ table{
 
 }
 
-.container{
-  display: flex;
-  justify-content: center;
+.datos{
+    display: flex;
+    justify-content: center;
 }
 
 th{
@@ -48,9 +48,6 @@ th{
 table th{
     text-align: center;
 }
-.container td{
-  height: auto;
-}
 </style>
 <body>
   <div class="cabecera">
@@ -59,36 +56,37 @@ table th{
     <h3>Túxtla Gutiérrez Chiapas</h3>
     <h3><?=date('Y-m-d')?></h3>
   </div>
+  <div class="datos">
   <div class="container">
    
-<table border="1px" class="tabla">
+<table border="1px">
     <thead> 
         <tr>
-                <th>Numero</th>
-                <th>Producto</th>
+                <th>Clave</th>
+                <th>Descripción</th>
                 <th>Gramos</th>
                 <th>Contenido Neto</th>
                 <th>Tipo</th>
-                <th>Stock</th>     
-                <th>Existencia</th>  
-
+                <th>Precio Proveedor</th>
+                <th>Stock</th>   
         </tr>
     </thead>
     <tbody>
     <?php while ($inventario=$inventarios->fetch_object()):?>
             <tr>
-            <td class="cosas"><?=$inventario->id_producto?></td>
+            <td class="cosas producto"><?=$inventario->id_producto?></td>
             <td class="cosas columna"><?=$inventario->descripcion?></td>
             <td class="cosas"><?=$inventario->gramos?></td>
             <td class="cosas"><?=$inventario->contenido?></td>
             <td class="cosas"><?=$inventario->tipo?></td>
+            <td class="cosas"><?=$inventario->precio_proveedor?></td>
             <td class="cosas"><?=$inventario->stock?></td>
-            <td class="cosas"></td>
+
             </tr>
            <?php endwhile; ?>
     </tbody>
 </table>
 </div>
-
+</div>
 </body>
 </html>

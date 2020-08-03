@@ -168,6 +168,8 @@ class Prueba{
                 //         }               
                 $select="SELECT id_producto FROM prueba WHERE id_producto= {$this->getId_producto()}";
 
+               
+
 
                
                 // $prestamo="SELECT descripcion FROM prueba WHERE descripcion='{$this->getDescripcion()}'";
@@ -182,8 +184,8 @@ class Prueba{
                         $resultado1 = $this->db->query($update);
                         //  var_dump($insert);
                 } 
-                 else{
-                        $insert="INSERT INTO prueba VALUES (NULL, {$this->getId_producto()}, '{$this->getDescripcion()}', '{$this->getGramos()}', '{$this->getContenido()}', '{$this->getTipo()}', {$this->getPrecio_publico()}, '{$this->getStock()}', {$this->getCantidad()}, {$this->getDescuento()}, '{$this->getTotal()}', '{$this->getUsuario()}')";
+                 else{ 
+                        $insert="INSERT INTO prueba VALUES ({$this->getId()}, {$this->getId_producto()}, '{$this->getDescripcion()}', '{$this->getGramos()}', '{$this->getContenido()}', '{$this->getTipo()}', {$this->getPrecio_publico()}, '{$this->getStock()}', {$this->getCantidad()}, {$this->getDescuento()}, '{$this->getTotal()}', '{$this->getUsuario()}')";
                         // var_dump($insert);
                         // die();
                         $resultado = $this->db->query($insert);
@@ -222,7 +224,6 @@ class Prueba{
                 $mostrar = "SELECT * FROM prueba";
                 $respuesta= $this->db->query($mostrar);
                 return $respuesta;
-
                 
                 //FUNCIONA....
                 // $mostrar = "SELECT * FROM prueba";
@@ -240,6 +241,7 @@ class Prueba{
         }
 
         public function cobrar(){
+
                 $sql="INSERT INTO historial_farmacia (folio, fecha, descripcion, gramos, contenido, tipo, precio_publico, cantidad, descuento, total,usuario) 
                 SELECT id, CURDATE(), descripcion, gramos, contenido, tipo, precio_publico,cantidad, descuento, total,usuario FROM prueba";
 
@@ -265,5 +267,6 @@ class Prueba{
                  return $respuesta3;
 
         }
+
 
 }

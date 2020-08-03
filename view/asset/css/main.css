@@ -4,7 +4,9 @@
 form label{
 display: flex;
 } */
-
+.faltantes{
+  margin: 10px 10px;
+}
 .container .fa-money-bill-wave{
   color: #fff;
 }

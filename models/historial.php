@@ -130,7 +130,7 @@ class Historial{
 
     public function showAllHistorial(){
        
-        $query="SELECT * FROM historial_farmacia";
+        $query="SELECT folio, fecha, descripcion, gramos, contenido, tipo, precio_publico, cantidad, descuento, SUM(total) as total, usuario FROM historial_farmacia GROUP BY folio" ;
         
         $resultado= $this->db->query($query);
 

@@ -34,7 +34,7 @@ exit;
         }
 
         public function recibo(){
-
+            $folio= $_POST['folio'];
             $clave = $_POST['clave'];
             $descripcion=$_POST['descripcion'];
             $gramos=$_POST['gramos'];
@@ -59,6 +59,7 @@ exit;
             //     var_dump($insertaCantidad);
             //     var_dump($aver);
             // }
+            $prueba->setId($folio);
             $prueba->setId_producto($clave);
             $prueba->setDescripcion($descripcion);
             $prueba->setGramos($gramos);
@@ -87,6 +88,7 @@ exit;
                 $datosTabla= $datosTabla.'
                 <tr>
                 <td><input type="checkbox" value="'.$value['id'].'" ></td>
+                <td>'.$_SESSION['numeral'].'</td>
                 <td>'.$value['descripcion'].'</td>
                 <td>'.$value['gramos'].'</td>
                 <td>'.$value['contenido'].'</td>
@@ -117,12 +119,21 @@ exit;
 
         public function  btnCobrar(){
 
-
-            $prueba = new Prueba();
-            $prueba->cobrar();
-            
-            header("Location:". base_url. "cobrar/index");
-
+                $prueba = new Prueba();
+                $prueba->cobrar();
+                
+                header("Location:". base_url. "cobrar/index");    
+           
         }
+
+        // public function consulta(){
+
+        //     $prueba = new Prueba();
+
+        //     $pruebas = $prueba->consultaMax();
+
+        //     $_SESSION['numeral']= $pruebas['numeral'] + 1;
+
+        // }
 
 }

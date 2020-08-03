@@ -32,12 +32,16 @@ $destroy->deleteSession('success');
 
 <div class="container mt-2">
     <form action="<?= base_url ?>inventario/exportar" method="post">
-        <button class="btn btn-primary"> Exportar Pdf <i class=" ml-1 far fa-file-pdf"></i></button>
+        <button class="btn btn-primary"> Inventario Pdf <i class=" ml-1 far fa-file-pdf"></i></button>
+    </form>
+ 
+    <form action="<?= base_url ?>inventario/export" method="post" class="faltantes">
+        <button class="btn btn-primary"> Faltantes Pdf <i class=" ml-1 far fa-file-pdf"></i></button>
         <!-- <a href="<?= base_url ?>inventario/exportar" class="btn btn-primary">Exportar <i class=" ml-1 far fa-file-pdf"></i></a> -->
     </form>
 </div>
-
 <div class="scroll">
+
     <section class="container">
         <div class="table-responsive">
             <table id="example" class="table table-hover table-striped navbar-expand-sm table-bordered" style="width:100%">

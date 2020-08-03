@@ -27,9 +27,7 @@ if($_SESSION['userRol'] != 'admin'){
 
 </head>
 <body>
-
-<!-- navbar -->
-<nav class="navbar navbar-expand-sm navbar-light bg-light">
+<nav class="navbar navbar navbar-dark bg-primary navbar-expand-sm ">
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
@@ -44,6 +42,8 @@ if($_SESSION['userRol'] != 'admin'){
     </ul>
   </div>
 </nav>
+
+
 <h1 class="display-4 text-center mt-5">FARMACIA</h1>
 
 
@@ -51,12 +51,12 @@ if($_SESSION['userRol'] != 'admin'){
 
 
 		<section class="contenido">
-        <a href="" class="boton-1"> Cobrar  <i class="fas fa-cash-register"></i></a>
-                <a href="" class="boton-2">Historial<i class="fas fa-history"></i></a>
+        <a href="<?=base_url?>usuario/cajero" class="boton-1">Cajeros<i class="fas fa-cash-register"></i></a>
+                <a href="<?=base_url?>historial/index" class="boton-2">Historial<i class="fas fa-history"></i></a>
 			<a href="<?=base_url?>entrada/index" class="boton-3"> Entradas <i class="fas fa-person-booth"></i></a>
 			<a href="<?=base_url?>inventario/index" class="boton-4"> Inventario<i class="fas fa-boxes"></i></a>
 			<a href="<?=base_url?>registro/index" class="boton-5"> Registro <i class="fab fa-product-hunt"></i></a>
-            <a href="" class="boton-6">Pendiente</a>
+            <a href="<?=base_url?>inventario/igualacion" class="boton-6">Igualación<i class="fas fa-database"></i></a>
 
            
 		</section>

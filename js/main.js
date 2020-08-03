@@ -150,7 +150,7 @@ $(document).ready(function() {
         
         $.ajax({
             type: "POST",
-            url: "http://192.168.0.6/farmacia/cobrar/buscar",
+            url: "http://192.168.0.21/farmacia/cobrar/buscar",
             data: {buscar:buscar},
             async:true,
             success: function (response) {
@@ -179,12 +179,14 @@ $(document).ready(function() {
                 $('#tipo').html('-');
                 $('#stock').html('0');
                 $('#cantidad').val('0');
+                $('#descuento').val('0');
 
                 //bloquear cantidad
                 $('#cantidad').attr('disabled', 'disabled');
                 $('#total').attr('disabled', 'disabled');
                 //ocultar boton agregar
                 $('.ocultar').slideUp();
+
 
 
             }
@@ -272,9 +274,9 @@ $(document).ready(function() {
 
     });
 
-console.log();
     $('.agregar').on('click',function(e){
         e.preventDefault();
+        let folio = $('#folio').html();
         let clave= $('#clave').html();
         let usuario = $('#inicioSesion').val();
         let descripcion = $('.descripcion').html();
@@ -296,6 +298,7 @@ console.log();
         // let total = $('#total').html();
 
         data={
+            folio:folio,
             clave:clave,       
             descripcion:descripcion,
             gramos:gramos,
@@ -312,7 +315,7 @@ console.log();
 
         $.ajax({
             type: "POST",
-            url: "http://192.168.0.6/farmacia/cobrar/recibo",
+            url: "http://192.168.0.21/farmacia/cobrar/recibo",
             data: data,
             dataType: "dataType",
             success: function (response) {
@@ -329,7 +332,7 @@ console.log();
 
     	$.ajax({
 		type:"POST",
-		url:"http://192.168.0.6/farmacia/cobrar/visualizar",
+		url:"http://192.168.0.21/farmacia/cobrar/visualizar",
 		success:function(r){
             console.log(r);
             $('#tablaDatos').html(r);
@@ -348,7 +351,7 @@ peticion.addEventListener('click', e =>{
 
     $.ajax({
     type:"POST",
-    url:"http://192.168.0.6/farmacia/cobrar/visualizar",
+    url:"http://192.168.0.21/farmacia/cobrar/visualizar",
     success:function(r){
         console.log(r);
         $('#tablaDatos').html(r);
@@ -439,7 +442,7 @@ $('.eliminame').on('click', function(e){
 
         $.ajax({
             type: "POST",
-            url: "http://192.168.0.6/farmacia/cobrar/eliminarProducto",
+            url: "http://192.168.0.21/farmacia/cobrar/eliminarProducto",
             data: data,
             dataType: "dataType",
             success: function (r) {
@@ -539,7 +542,7 @@ $('#recibo').keyup(function (e) {
            $.ajax({
            type:"POST",
            data: data,
-           url:"http://192.168.0.6/farmacia/historial/corte",
+           url:"http://192.168.0.21/farmacia/historial/corte",
            success:function(r){
             let info= JSON.parse(r);
             console.log(info.suma);
