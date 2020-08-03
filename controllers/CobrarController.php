@@ -34,6 +34,7 @@ exit;
         }
 
         public function recibo(){
+
             $clave = $_POST['clave'];
             $descripcion=$_POST['descripcion'];
             $gramos=$_POST['gramos'];
@@ -44,8 +45,20 @@ exit;
             $cantidad=$_POST['cantidad'];
             $descuento = $_POST['descuento'];
             $total=$_POST['total'];
+            $usuario=$_POST['usuario'];
+            // var_dump($usuario);
 
             $prueba = new Prueba();
+
+            // $prueba->getUsuario();
+            // if($descripcion == "prestamo"){
+            //     $insertaCantidad= $cantidad * $precio_publico;
+            //     $prueba->setCantidad($insertaCantidad);
+
+            //     $aver=$prueba->getCantidad();
+            //     var_dump($insertaCantidad);
+            //     var_dump($aver);
+            // }
             $prueba->setId_producto($clave);
             $prueba->setDescripcion($descripcion);
             $prueba->setGramos($gramos);
@@ -56,6 +69,7 @@ exit;
             $prueba->setCantidad($cantidad);
             $prueba->setDescuento($descuento);
             $prueba->setTotal($total);
+            $prueba->setUsuario($usuario);
             $prueba->inserta();
         }
 

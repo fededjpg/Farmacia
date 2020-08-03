@@ -6,6 +6,9 @@ else{
     return header("Location:". base_url);
     exit();
 }
+if($_SESSION['userRol'] != 'admin'){
+  header("Location:".base_url. "cobrar/index");
+} 
 ?>
 
 <?php require_once 'view/layout/header.php'; ?>

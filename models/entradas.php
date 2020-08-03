@@ -3,6 +3,7 @@ class Entrada{
 
     public $id;
     public $id_producto;
+    public $descripcion;
     public $gramos;
     public $contenido;
     public $tipo;
@@ -35,6 +36,15 @@ class Entrada{
         return $this->gramos;
     }
 
+    public function getDescripcion()
+    {
+        return $this->descripcion;
+    }
+
+    public function setDescripcion($descripcion)
+    {
+        return $this->descripcion = $descripcion;
+    }
     
     public function setContenidos($contenido)
     {
@@ -115,9 +125,10 @@ class Entrada{
      return $resultado;
      return $resultadoInv;
     }
+    public function getOneEntry(){
+        $consult ="	SELECT id_producto, descripcion, gramos, tipo FROM productos WHERE id_producto = {$this->getId_producto()}";
+        $result=$this->db->query($consult);
+        return $result;
+    }
 
 }
-
-
-
-?>

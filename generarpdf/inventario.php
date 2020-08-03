@@ -37,10 +37,21 @@ th{
 .container .columna{
   width: auto;
 }
+.cabecera{
+  background-color: #1A8CFF;
+  color: #fff;
+  margin-bottom: 10px;
+}
 </style>
 <body>
+  <div class="cabecera">
+  <h2>Grupo Pharma-Medic Inventario</h2>
+    <h3>Av. Actopan #160 Col. Los Pajaros</h3>
+    <h3>Túxtla Gutiérrez Chiapas</h3>
+    <h3><?=date('Y-m-d')?></h3>
+  </div>
   <div class="container">
-    <h1>Farmacias Guadalajara</h1>
+   
 <table border="1px">
     <thead> 
         <tr>

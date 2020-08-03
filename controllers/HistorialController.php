@@ -5,11 +5,19 @@ require_once 'models/historial.php';
 class HistorialController{
     public function index(){
     
-        $historial = new Historial();
+        $historial = new Historial(); 
         $historiales = $historial->showAllHistorial();
 
         require 'view/historial/index.php';
 
+    }
+
+    public function historial(){
+
+        $historial = new Historial();
+        $historiales = $historial->showTotal();
+
+        require 'view/historial/index.php';
     }
 
     public function corte(){

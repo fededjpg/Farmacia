@@ -121,8 +121,9 @@ class Historial{
     }
 
     public function showCorte(){
-    $query="SELECT sum(total) as suma FROM historial_farmacia WHERE fecha= '{$this->getFecha()}' AND fecha= '{$this->getFecha2()}' AND usuario= '{$this->getUsuario()}'";
-
+    $query="SELECT sum(total) as suma, usuario FROM historial_farmacia WHERE fecha BETWEEN  '{$this->getFecha()}' AND  '{$this->getFecha2()}' AND usuario= '{$this->getUsuario()}'";
+        // var_dump($query);
+        // die();
     $resultado = $this->db->query($query);
     return $resultado;
     }
@@ -130,10 +131,28 @@ class Historial{
     public function showAllHistorial(){
        
         $query="SELECT * FROM historial_farmacia";
+        
         $resultado= $this->db->query($query);
+
+        $query2="SELECT sum(total) as suma FROM historial_farmacia";
+        
+        $resultado2= $this->db->query($query2);
+        
+        $res=$resultado2->fetch_assoc();
+       $_SESSION['total']= $res['suma'];
         return $resultado;
+       
     }
 
+        public function showTotal(){
+
+            $query2="SELECT sum(total) as suma FROM historial_farmacia";
+        
+            $resultado2= $this->db->query($query2);
+
+            return $resultado2;
+
+        }
     
 
    

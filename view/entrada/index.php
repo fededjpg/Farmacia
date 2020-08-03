@@ -6,6 +6,9 @@ else{
     return header("Location:". base_url);
     exit();
 }
+if($_SESSION['userRol'] != 'admin'){
+  header("Location:".base_url. "cobrar/index");
+}   
 ?>
 <?php require_once 'view/layout/header.php'; ?>
 <?php 
@@ -74,7 +77,7 @@ $destroy->deleteSession('success');
             </div>
             <div class="modal-footer">
               <button type="button" class="btn btn-outline-secondary" data-dismiss="modal">Cancelar</button>
-              <button type="submit" class="btn btn-primary">Agregar</button>
+              <button type="submit" class="btn btn-primary">Actualizar</button>
             </div>
           </form>
 
@@ -98,6 +101,7 @@ $destroy->deleteSession('success');
             <th>Tipo</th>
             <th>Fecha Entrada</th>
             <th>Entradas</th>
+            <th>Acciones</th>
           </tr>
         </thead>
         <tbody class="text-center">
@@ -110,6 +114,7 @@ $destroy->deleteSession('success');
               <td><?= $entrada->tipo ?></td>
               <td><?= $entrada->fecha_registro ?></td>
               <td><?= $entrada->entradas ?></td>
+              <td><a href="<?=base_url?>entrada/actualizar&id=<?=$entrada->id_producto?>"><i class="far fa-edit"></i></a></td>
             </tr>
           <?php endwhile; ?>
         </tbody>

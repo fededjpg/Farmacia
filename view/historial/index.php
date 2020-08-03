@@ -6,6 +6,9 @@ else{
     return header("Location:". base_url);
     exit();
 }
+if($_SESSION['userRol'] != 'admin'){
+    header("Location:".base_url. "cobrar/index");
+  }   
 ?>
 
 <?php require_once 'view/layout/header.php'; ?>
@@ -19,7 +22,7 @@ else{
      <input type="text" placeholder="Usuario" id="corteUsuario" name="corteUsuario">
         <button class="btn btn-success" id="corte"> Corte <i class="fas fa-money-bill-wave"></i></button>
     <!-- </form> -->
-        <input type="text" disabled placeholder="Corte Usuario" >
+        <input type="text" disabled value="<?="Corte total ".$_SESSION['total']?>" >
         <p id="totaleshion"></p>
 </div>
 <div class="scroll">

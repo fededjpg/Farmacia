@@ -115,7 +115,7 @@ class Inventario{
 
     public function showAllInventario(){
         $consult = "  SELECT  id_producto, descripcion, gramos, contenido,tipo, stock
-        FROM productos ";
+        FROM productos WHERE id_producto > 3";
 
         // SELECT  i.id_inventario, p.id_producto, p.descripcion, p.gramos, p.contenido, p.tipo,
         // e.fecha_registro, e.entradas, sum(e.entradas) as 'stock'  
@@ -171,7 +171,18 @@ class Inventario{
         $result=$this->db->query($consult);
 
         return $result;
+
     }   
+
+    public function showAllIgualacion(){
+
+        $query = "SELECT p.id_producto, p.descripcion, p.gramos, p.contenido, p.tipo ,i.faltantes, i.sobrantes, i.fechas 
+        FROM productos p, igualacion_inventario i 
+        WHERE i.id_producto = p.id_producto AND i.id_producto > 3;";
+
+        $resultado = $this->db->query($query);
+        return $resultado;
+    }
 
 }
    

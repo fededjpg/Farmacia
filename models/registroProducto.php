@@ -97,7 +97,7 @@ class Producto{
 
 /**visualixar todos lod productos en la tabla */
     public function showAllProducts(){
-        $consult= "SELECT * FROM productos";
+        $consult= "SELECT * FROM productos WHERE  id_producto > 3";
         $resultado= $this->db->query($consult);
         return $resultado;
     }

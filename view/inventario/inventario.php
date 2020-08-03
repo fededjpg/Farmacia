@@ -6,6 +6,9 @@ else{
     return header("Location:". base_url);
     exit();
 }
+if($_SESSION['userRol'] != 'admin'){
+    header("Location:".base_url. "cobrar/index");
+  }  
 ?>
 
 <?php require_once 'view/layout/header.php'; ?>
@@ -29,64 +32,6 @@ $destroy->deleteSession('success');
 
 <div class="container mt-2">
     <form action="<?= base_url ?>inventario/exportar" method="post">
-        <select>
-            <option disabled selected>Seleciona una letra</option>
-            <option value="a" name="a">A</option>
-            <option value="b" name="b">B</option>
-            <option value="c" name="c">C</option>
-            <option value="d" name="d">D</option>
-            <option value="e" name="e">E</option>
-            <option value="f" name="f">F</option>
-            <option value="g" name="g">G</option>
-            <option value="h" name="h">H</option>
-            <option value="i" name="i">I</option>
-            <option value="j" name="j">J</option>
-            <option value="k" name="k">K</option>
-            <option value="l" name="l">L</option>
-            <option value="m" name="m">M</option>
-            <option value="n" name="n">N</option>
-            <option value="o" name="o">O</option>
-            <option value="p" name="p">P</option>
-            <option value="q" name="q">Q</option>
-            <option value="r" name="r">R</option>
-            <option value="s" name="s">S</option>
-            <option value="t" name="t">T</option>
-            <option value="u" name="u">U</option>
-            <option value="v" name="v">V</option>
-            <option value="w" name="w">W</option>
-            <option value="x" nema="x">X</option>
-            <option value="y" name="y">Y</option>
-            <option value="z" name="z">Z</option>
-        </select>
-        <select>
-            <option disabled selected>Seleciona una letra</option>
-            <option value="a" name="a">A</option>
-            <option value="b" name="b">B</option>
-            <option value="c" name="c">C</option>
-            <option value="d" name="d">D</option>
-            <option value="e" name="e">E</option>
-            <option value="f" name="f">F</option>
-            <option value="g" name="g">G</option>
-            <option value="h" name="h">H</option>
-            <option value="i" name="i">I</option>
-            <option value="j" name="j">J</option>
-            <option value="k" name="k">K</option>
-            <option value="l" name="l">L</option>
-            <option value="m" name="m">M</option>
-            <option value="n" name="n">N</option>
-            <option value="o" name="o">O</option>
-            <option value="p" name="p">P</option>
-            <option value="q" name="q">Q</option>
-            <option value="r" name="r">R</option>
-            <option value="s" name="s">S</option>
-            <option value="t" name="t">T</option>
-            <option value="u" name="u">U</option>
-            <option value="v" name="v">V</option>
-            <option value="w" name="w">W</option>
-            <option value="x" nema="x">X</option>
-            <option value="y" name="y">Y</option>
-            <option value="z" name="z">Z</option>
-        </select>
         <button class="btn btn-primary"> Exportar Pdf <i class=" ml-1 far fa-file-pdf"></i></button>
         <!-- <a href="<?= base_url ?>inventario/exportar" class="btn btn-primary">Exportar <i class=" ml-1 far fa-file-pdf"></i></a> -->
     </form>

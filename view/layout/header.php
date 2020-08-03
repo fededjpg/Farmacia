@@ -32,10 +32,13 @@
       <li class="nav-item">
         <a class="nav-link" href="<?=base_url?>inventario/index">Inventario</a>
       </li>
-
+      <li class="nav-item">
+        <a class="nav-link" href="<?=base_url?>inventario/igualacion">Registros de Inventario</a>
+      </li>
       <li class="nav-item">
         <a class="nav-link" href="<?=base_url?>registro/index">Resgistro de Productos</a>
       </li>
+
       <li class="nav-item">
         <a class="nav-link" href="<?=base_url?>historial/index">Historial</a>
       </li>

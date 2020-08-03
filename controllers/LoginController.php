@@ -44,7 +44,12 @@ class LoginController
             $_SESSION['userRol'];
             $_SESSION['userName'];
             $_SESSION['userLastName'];
-            echo 1;
+           
+            if($_SESSION['userRol']!= 'admin'){
+           echo 1;
+            }else{
+           echo 2;
+            }
         } else {
             echo 0;
         }

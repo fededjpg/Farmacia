@@ -57,6 +57,14 @@ class InventarioController{
 
     }
 
+    public function igualacion(){
+
+        $igualacion = new Inventario();
+        $igualaciones=$igualacion->showAllIgualacion();
+
+        require_once 'view/inventario/igualacion.php';
+    }
+
     
 
 }

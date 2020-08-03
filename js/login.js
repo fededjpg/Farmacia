@@ -8,7 +8,7 @@ $(document).ready(function () {
         console.log(datos);
         $.ajax({
             type: "POST",
-            url: "http://192.168.0.21/farmacia/login/login",
+            url: "http://192.168.0.06/farmacia/login/login",
             data: datos,
             beforeSend: function () {
                 // $('#img').show();
@@ -17,7 +17,10 @@ $(document).ready(function () {
             },
             success: function (respuesta) {
                 if( respuesta == 1 ){
-                    $(location).attr('href','http://192.168.0.21/farmacia/bienvenida/index');
+                    $(location).attr('href','http://192.168.0.6/farmacia/cobrar/index');
+                }else{
+                    $(location).attr('href','http://192.168.0.6/farmacia/bienvenida/index');
+
                 }
             }
         });

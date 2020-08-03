@@ -7,6 +7,9 @@ else{
     return header("Location:". base_url);
     exit();
 }
+if($_SESSION['userRol'] != 'admin'){
+    header("Location:".base_url. "cobrar/index");
+  } 
 ?>
 
 <?php require_once 'view/layout/header.php' ?>
@@ -43,7 +46,7 @@ else{
                             </div>
                             <div class="form-group col">
                                 <div class="text-md-center">
-                                <button type="button" class="btn btn-outline-secondary" data-dismiss="modal">Cancelar</button>
+                                <a class="btn btn-outline-secondary" data-dismiss="modal" href="<?=base_url?>inventario/index">Cancelar</a>
                                 <button type="submit" class="btn btn-primary">Actualizar</button>
                                 </div>
                             </div>

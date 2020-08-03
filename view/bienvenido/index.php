@@ -6,7 +6,12 @@ else{
     return header("Location:". base_url);
     exit();
 }
+if($_SESSION['userRol'] != 'admin'){
+    header("Location:".base_url. "cobrar/index");
+  } 
 ?>
+
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -46,15 +51,14 @@ else{
 
 
 		<section class="contenido">
-            <?php if($_SESSION['userRol'] == "admin"):?>
+        <a href="" class="boton-1"> Cobrar  <i class="fas fa-cash-register"></i></a>
                 <a href="" class="boton-2">Historial<i class="fas fa-history"></i></a>
 			<a href="<?=base_url?>entrada/index" class="boton-3"> Entradas <i class="fas fa-person-booth"></i></a>
 			<a href="<?=base_url?>inventario/index" class="boton-4"> Inventario<i class="fas fa-boxes"></i></a>
 			<a href="<?=base_url?>registro/index" class="boton-5"> Registro <i class="fab fa-product-hunt"></i></a>
-			<a href="" class="boton-6">Pendiente</a>
-            <?php else: ?>
-            <a href="" class="boton-1"> Cobrar  <i class="fas fa-cash-register"></i></a>
-            <?php endif; ?>
+            <a href="" class="boton-6">Pendiente</a>
+
+           
 		</section>
 	</div>
 <!-- <section class="fixed-bar">

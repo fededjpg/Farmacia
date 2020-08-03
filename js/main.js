@@ -15,63 +15,6 @@ $(document).ready(function() {
     //       alert("hola");
     //   })
 
-
-    let vamonosPerras = document.querySelector("#corte");
-    let totaleshion = document.querySelector("#totaleshion");
-    //MOSTRAR LOS DATOS 
- vamonosPerras.addEventListener('click', e =>{
-
-           
-        let fechas = document.querySelector('#fechas').value;
-        let fechass =  document.querySelector('#fechass').value;
-        let corteUsuario=  document.querySelector('#corteUsuario').value;
-
-        console.log(fechas);
-        console.log(fechass);
-        console.log(corteUsuario);
-
-        data={
-            fechas:fechas,
-            fechass:fechass,
-            corteUsuario:corteUsuario
-        }
-   
-           $.ajax({
-           type:"POST",
-           data: data,
-           url:"http://192.168.0.21/farmacia/historial/corte",
-           success:function(r){
-            let info= JSON.parse(r);
-            console.log(info.suma);
-            totaleshion.innerHTML= `${info.suma}`;
-
-           }
-       });
-   });
-   
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     // $('#corte').on('click',function (e) { 
     //     e.preventDefault();
         
@@ -207,7 +150,7 @@ $(document).ready(function() {
         
         $.ajax({
             type: "POST",
-            url: "http://192.168.0.21/farmacia/cobrar/buscar",
+            url: "http://192.168.0.6/farmacia/cobrar/buscar",
             data: {buscar:buscar},
             async:true,
             success: function (response) {
@@ -329,10 +272,11 @@ $(document).ready(function() {
 
     });
 
-
+console.log();
     $('.agregar').on('click',function(e){
         e.preventDefault();
         let clave= $('#clave').html();
+        let usuario = $('#inicioSesion').val();
         let descripcion = $('.descripcion').html();
         let gramos = $('#gramos').html();
         let contenido = $('#contenido').html();
@@ -361,13 +305,14 @@ $(document).ready(function() {
             stock:stock,
             cantidad:cantidad,
             descuento:descuento,
-            total:total
+            total:total,
+            usuario:usuario
         }
         console.log(data);
 
         $.ajax({
             type: "POST",
-            url: "http://192.168.0.21/farmacia/cobrar/recibo",
+            url: "http://192.168.0.6/farmacia/cobrar/recibo",
             data: data,
             dataType: "dataType",
             success: function (response) {
@@ -384,7 +329,7 @@ $(document).ready(function() {
 
     	$.ajax({
 		type:"POST",
-		url:"http://192.168.0.21/farmacia/cobrar/visualizar",
+		url:"http://192.168.0.6/farmacia/cobrar/visualizar",
 		success:function(r){
             console.log(r);
             $('#tablaDatos').html(r);
@@ -403,7 +348,7 @@ peticion.addEventListener('click', e =>{
 
     $.ajax({
     type:"POST",
-    url:"http://192.168.0.21/farmacia/cobrar/visualizar",
+    url:"http://192.168.0.6/farmacia/cobrar/visualizar",
     success:function(r){
         console.log(r);
         $('#tablaDatos').html(r);
@@ -494,7 +439,7 @@ $('.eliminame').on('click', function(e){
 
         $.ajax({
             type: "POST",
-            url: "http://192.168.0.21/farmacia/cobrar/eliminarProducto",
+            url: "http://192.168.0.6/farmacia/cobrar/eliminarProducto",
             data: data,
             dataType: "dataType",
             success: function (r) {
@@ -537,6 +482,69 @@ $('.eliminame').on('click', function(e){
 //     });
 
 
+$('#cobrar').slideUp();
+
+$('#recibo').keyup(function (e) { 
+
+    let cambio= $(this).val() - $('#totalAPagar').val();
+    $('#cambio').val(cambio);
+    // console.log(cambio);
+    console.log($(this).val());
+
+
+    if($(this).val() == "" || $(this).val() == 0 || $('#cambio').val() < 0){
+        $('#cambio').val("pago insuficiente");
+        $('#cobrar').slideUp();
+
+    }
+    if(cambio >= 0 && $('#totalAPagar').val() != 0 ){
+            $('#cobrar').slideDown();
+    }
+    //  if(cambio < 0 && $('#totalAPagar').val() == ""){
+    //     $('#cobrar').slideUp();
+    // }
+    // if($(this).val() >=  $('#totalAPagar').val()){
+    //     $('#cobrar').slideDown();
+    // }
+    // if($(this).val() <  $('#totalAPagar').val()){
+    //     $('#cobrar').slideUp();
+    // }
+});
+
 
     
 } );
+
+
+    let vamonosPerras = document.querySelector("#corte");
+    let totaleshion = document.querySelector("#totaleshion");
+    //MOSTRAR LOS DATOS 
+ vamonosPerras.addEventListener('click', e =>{
+
+           
+        let fechas = document.querySelector('#fechas').value;
+        let fechass =  document.querySelector('#fechass').value;
+        let corteUsuario=  document.querySelector('#corteUsuario').value;
+
+        console.log(fechas);
+        console.log(fechass);
+        console.log(corteUsuario);
+
+        data={
+            fechas:fechas,
+            fechass:fechass,
+            corteUsuario:corteUsuario
+        }
+   
+           $.ajax({
+           type:"POST",
+           data: data,
+           url:"http://192.168.0.6/farmacia/historial/corte",
+           success:function(r){
+            let info= JSON.parse(r);
+            console.log(info.suma);
+            totaleshion.innerHTML= `El corte de ${info.usuario} es ${info.suma} pesos`;
+
+           }
+       });
+   });

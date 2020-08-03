@@ -12,6 +12,7 @@ class Prueba{
         public $cantidad;
         public $descuento;
         public $total;
+        public $usuario;
         private $db;
 
         public function __construct() {
@@ -129,6 +130,16 @@ class Prueba{
         {
                 return $this->total = $total;
         }
+        
+        public function getUsuario()
+        {
+                return $this->usuario;
+        }
+        public function setUsuario($usuario)
+        {
+                return $this->usuario = $usuario;
+        
+        }
 
         public function getBuscar(){
 
@@ -145,32 +156,60 @@ class Prueba{
                 return $respuesta;
         }
         public function inserta(){
-               
+
+                // if($this->getDescripcion() == "prestamo"){
+                //         $insert="INSERT INTO prueba VALUES (NULL, {$this->getId_producto()}, '{$this->getDescripcion()}', '{$this->getGramos()}', '{$this->getContenido()}', '{$this->getTipo()}', {$this->getPrecio_publico()}, '{$this->getStock()}', {$this->getCantidad()}, {$this->getDescuento()}, '{$this->getTotal()}')";
+                //         // $insert="INSERT INTO prueba VALUES ( $this->getC )"
+                //         var_dump($insert);
+                //         // die();
+                      
+                                
+                //         $resultado = $this->db->query($insert);
+                //         }               
                 $select="SELECT id_producto FROM prueba WHERE id_producto= {$this->getId_producto()}";
 
-                $resultado2 = $this->db->query($select);
+
+               
+                // $prestamo="SELECT descripcion FROM prueba WHERE descripcion='{$this->getDescripcion()}'";
+                // var_dump($prestamo);
 
                 
-                
+
+                $resultado2 = $this->db->query($select);
                 if($resultado2->num_rows > 0){
                 
                         $update="UPDATE prueba SET cantidad = cantidad + {$this->getCantidad()}, total = precio_publico * cantidad WHERE id_producto = {$this->getId_producto()}";
-
                         $resultado1 = $this->db->query($update);
-
                         //  var_dump($insert);
-                        
-
                 } 
-                
-                else {
-                        $insert="INSERT INTO prueba VALUES (NULL, {$this->getId_producto()}, '{$this->getDescripcion()}', '{$this->getGramos()}', '{$this->getContenido()}', '{$this->getTipo()}', '{$this->getPrecio_publico()}', '{$this->getStock()}', {$this->getCantidad()}, {$this->getDescuento()}, '{$this->getTotal()}')";
-                
+                 else{
+                        $insert="INSERT INTO prueba VALUES (NULL, {$this->getId_producto()}, '{$this->getDescripcion()}', '{$this->getGramos()}', '{$this->getContenido()}', '{$this->getTipo()}', {$this->getPrecio_publico()}, '{$this->getStock()}', {$this->getCantidad()}, {$this->getDescuento()}, '{$this->getTotal()}', '{$this->getUsuario()}')";
+                        // var_dump($insert);
+                        // die();
                         $resultado = $this->db->query($insert);
-
-                         // var_dump($insert);
+                      // var_dump($insert);
                          
-                }   
+                }  
+                
+                // else if ($res_presta =! "prestamo"){
+                //         $insert="INSERT INTO prueba VALUES (NULL, {$this->getId_producto()}, '{$this->getDescripcion()}', '{$this->getGramos()}', '{$this->getContenido()}', '{$this->getTipo()}', {$this->getPrecio_publico()}, '{$this->getStock()}', {$this->getCantidad()}, {$this->getDescuento()}, '{$this->getTotal()}')";        
+                //         $resultado = $this->db->query($insert);
+                //       // var_dump($insert);
+                         
+                // }  
+                
+                // $res_presta = $this->db->query($prestamo);
+               
+
+                // if($res_presta == "prestamo"){
+                        
+                //         $insert="INSERT INTO prueba VALUES (NULL, {$this->getId_producto()}, '{$this->getDescripcion()}', '{$this->getGramos()}', '{$this->getContenido()}', '{$this->getTipo()}', {$this->getPrecio_publico()}, '{$this->getStock()}', {$this->getCantidad()} = ({$this->getCantidad()} * {$this->getPrecio_publico()}), {$this->getDescuento()}, '{$this->getTotal()}')";        
+                        
+                //         $resultado = $this->db->query($insert);
+
+
+                // }
+
                 return $resultado2;
                 return $resultado1;
                 return $resultado;
@@ -201,8 +240,8 @@ class Prueba{
         }
 
         public function cobrar(){
-                $sql="INSERT INTO historial_farmacia (folio, fecha, descripcion, gramos, contenido, tipo, precio_publico, cantidad, descuento, total) 
-                SELECT id, CURDATE(), descripcion, gramos, contenido, tipo, precio_publico,cantidad, descuento, total FROM prueba";
+                $sql="INSERT INTO historial_farmacia (folio, fecha, descripcion, gramos, contenido, tipo, precio_publico, cantidad, descuento, total,usuario) 
+                SELECT id, CURDATE(), descripcion, gramos, contenido, tipo, precio_publico,cantidad, descuento, total,usuario FROM prueba";
 
                 $sql1=" UPDATE  productos p, prueba r SET p.stock = p.stock - r.cantidad 
                WHERE r.id_producto=p.id_producto";

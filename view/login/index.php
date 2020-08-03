@@ -44,37 +44,32 @@
 					</div>
 
 					<div class="wrap-input100 rs1 validate-input" data-validate="Password is required">
-						<input class="input100 password" type="password" name="password" placeholder="Password">
+						<input class="input100 password" type="password" name="password" placeholder="Contraseña">
 						<span class="focus-input100-1"></span>
 						<span class="focus-input100-2"></span>
 					</div>
 
 					<div class="container-login100-form-btn m-t-20">
 						<button type="submit" class="login100-form-btn" id="registrar" >
-							Sign in
+						Iniciar Sesión
 						</button>
 					</div>
 
-					<div class="text-center p-t-45 p-b-4">
-						<span class="txt1">
-							Forgot
-						</span>
-
-						<a href="#" class="txt2 hov1">
-							Username / Password?
-						</a>
-					</div>
+					
 					<div id="respuesta">
 					
 					</div>
 					<div class="text-center">
 						<span class="txt1">
-							Create an account?
+							&copy; ST-TUX 2020-08-02
 						</span>
 
-						<a href="#" class="txt2 hov1">
-							Sign up
-						</a>
+					</div>
+						<div class="text-center">
+						<span class="txt1">
+							Contacto: +52 961-336-91-12
+						</span>
+						
 					</div>
 				</form>
 			</div>
@@ -98,6 +93,14 @@
 	<!-- <script src="vendor/countdowntime/countdowntime.js"></script> -->
 <!--===============================================================================================-->
 	<script src="js/login.js"></script>
+
+	<?php
+	
+	// devuelve: Noviembre de 2017
+	// setlocale(LC_TIME, "Spanish");
+	// echo strftime("%A, %d de %B de %Y");
+	// devuelve: viernes, 17 de noviembre de 2017
+	 ?>
 
 </body>
 </html>
