@@ -37,7 +37,6 @@ $destroy->deleteSession('success');
  
     <form action="<?= base_url ?>inventario/export" method="post" class="faltantes">
         <button class="btn btn-primary"> Faltantes Pdf <i class=" ml-1 far fa-file-pdf"></i></button>
-        <!-- <a href="<?= base_url ?>inventario/exportar" class="btn btn-primary">Exportar <i class=" ml-1 far fa-file-pdf"></i></a> -->
     </form>
 </div>
 <div class="scroll">

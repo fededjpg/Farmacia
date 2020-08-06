@@ -10,11 +10,10 @@
    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.21/css/dataTables.bootstrap4.min.css">
 </head>
 <body id="portada">
-<!-- navbar -->
+
 <nav class="navbar navbar-dark bg-primary navbar-expand-sm sticky-top letras">
 <a class="navbar-brand" href="#">
 
-    <!-- <img src="" width="30" height="30" alt="" loading="lazy"> -->
   </a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
@@ -54,9 +53,9 @@
       </li>
     </ul>
     <div class="d-flex justify-content-end">
-          <!-- <div class="mr-auto p2 "> -->
+        
         <a class="nav-link" href="<?=base_url?>usuario/deleteSessionLogin"><i class="fas fa-power-off"></i></a>
-        <!-- </div> -->
+        
         </div>
   </div>
       <?php else: ?>
@@ -64,12 +63,11 @@
         <a class="nav-link" href="<?=base_url?>cobrar/index">Cobrar</a>
       </li>
       <div class="d-flex justify-content-end">
-          <!-- <div class="mr-auto p2 "> -->
+         
         <a class="nav-link" href="<?=base_url?>usuario/deleteSessionLogin"><i class="fas fa-power-off"></i></a>
-        <!-- </div> -->
+       
         </div>
       <?php endif; ?>
 </nav>
 <div class="general">
 
-<!-- end header  -->

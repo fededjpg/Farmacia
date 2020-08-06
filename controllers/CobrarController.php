@@ -126,14 +126,5 @@ exit;
            
         }
 
-        // public function consulta(){
-
-        //     $prueba = new Prueba();
-
-        //     $pruebas = $prueba->consultaMax();
-
-        //     $_SESSION['numeral']= $pruebas['numeral'] + 1;
-
-        // }
 
 }

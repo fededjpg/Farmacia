@@ -1,36 +1,6 @@
 
 $(document).ready(function () {
 
-    // $('#registrar').click(function () {
-
-    //     $
-    //     $.ajax({
-    //         type: "POST",
-    //         url: "http://192.168.0.06/farmacia/login/login",
-    //         data: datos,
-    //         beforeSend: function () {
-    //             // $('#img').show();
-    //             $('#respuesta').html("Validando su información" + "<img src='img/preview.gif' width='200px'></img>");
-            
-    //         },
-    //         success: function (respuesta) {
-    //             if( respuesta == 1 ){
-    //                 $(location).attr('href','http://192.168.0.6/farmacia/cobrar/index');
-    //             } 
-    //             if(respuesta == 2){
-    //                 $(location).attr('href','http://192.168.0.6/farmacia/bienvenida/index');
-
-    //             }
-    //             if(respuesta == 0){
-    //                 $(location).attr('href','http://192.168.0.6/farmacia');
-    //             }
-    //         }
-    //     });
-    // });
-        
-
-
-
 (function ($) {
     "use strict";
     /*==================================================================
@@ -91,15 +61,16 @@ let enviar = document.querySelector('.enviar'),
     login = document.querySelector('#login'),
     draw = document.querySelector('.draw'),
     response = document.querySelector('#respuesta');
+    let url = window.location.href;
+    console.log(url);
 
 login.addEventListener('submit', e => {
     e.preventDefault();
     let registrar = new FormData(login);
     console.log(registrar);
-    //console.log(registrar.get('user'), registrar.get('passwd'));
-    //draw.innerHTML= `<img src="preload.gif" alt="">`;
+   
     document.querySelector('.carga').classList.add('visible');
-    fetch('http://192.168.0.21/farmacia/login/login', {
+    fetch(url+'login/login', {
         method: "POST",
         body: registrar
     })
@@ -115,10 +86,10 @@ login.addEventListener('submit', e => {
             console.log(data);
             document.querySelector('.carga').classList.remove('visible');
             if (data == 1) {
-                location.href='http://192.168.0.21/farmacia/cobrar/index'; 
+                location.href= url+'cobrar/index'; 
             }
             if(data == 2){
-                location.href='http://192.168.0.21/farmacia/bienvenida/index'; 
+                location.href=url+'bienvenida/index'; 
             }
             if(data==0){
             response.innerHTML=`<p class="alert alert-danger" role="alert">Usuario o Contraseña Incorrecta</p>`;     

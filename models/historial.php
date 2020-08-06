@@ -122,8 +122,7 @@ class Historial{
 
     public function showCorte(){
     $query="SELECT sum(total) as suma, usuario FROM historial_farmacia WHERE fecha BETWEEN  '{$this->getFecha()}' AND  '{$this->getFecha2()}' AND usuario= '{$this->getUsuario()}'";
-        // var_dump($query);
-        // die();
+       
     $resultado = $this->db->query($query);
     return $resultado;
     }

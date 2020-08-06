@@ -25,7 +25,6 @@ if($_SESSION['userRol'] != 'admin'){
 $destroy= new Destroy();
 $destroy->deleteSession('success');
 ?>
-<!-- modal -->
 
 <section class="container">
   <button type="button" class="btn btn-primary mt-2 mb-2" data-toggle="modal" data-target="#add-new-register" data-whatever="@mdo">Agregar</button>

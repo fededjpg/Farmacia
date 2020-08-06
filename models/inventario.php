@@ -115,7 +115,7 @@ class Inventario{
 
     public function showAllInventario(){
         $consult = "  SELECT  id_producto, descripcion, gramos, contenido,tipo, stock
-        FROM productos WHERE id_producto > 3";
+        FROM productos WHERE id_producto > 10";
 
         // SELECT  i.id_inventario, p.id_producto, p.descripcion, p.gramos, p.contenido, p.tipo,
         // e.fecha_registro, e.entradas, sum(e.entradas) as 'stock'  
@@ -149,11 +149,7 @@ class Inventario{
 
     public function showAllProducto(){
     $consult="SELECT * FROM productos where descripcion =  '{$this->getDescripcion()}'";
-        // $consult = "SELECT i.id_inventario, p.id_producto, p.descripcion, p.gramos, p.contenido, p.precio_publico, p.tipo, i.stock
-        // FROM productos p 
-        // INNER JOIN inventario i
-	    // ON p.id_producto = {$this->getId_producto()}	
-        // WHERE i.id_inventario = {$this->getId_inventario()}";
+        
         $resultado= $this->db->query($consult);
         return $resultado;   
     }
@@ -167,11 +163,6 @@ class Inventario{
         stock=stock+{$this->getRestantes()}
         WHERE id_producto={$this->getId_producto()}";
         
-        // var_dump($insert);
-        // die();
-
-        // var_dump($UpdateInv);
-        // die();
 
         $resultado= $this->db->query($insert);
         $resUp= $this->db->query($UpdateInv);

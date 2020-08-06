@@ -5,9 +5,6 @@
       <small>Desarrollado Por &copy; ST-TUX <?= date('Y') ?></small>
     </div>
   </footer>
-<!-- <footer class="foot">
-    <b><p>Desarrollado Por &copy; ST-TUX <?= date('Y') ?> </p><b>
-</footer> -->
 </body>
 
 <script src="<?=base_url?>js/sweetalert.min.js"></script>

@@ -97,7 +97,7 @@ class Producto{
 
 /**visualixar todos lod productos en la tabla */
     public function showAllProducts(){
-        $consult= "SELECT * FROM productos WHERE  id_producto > 3";
+        $consult= "SELECT * FROM productos WHERE  id_producto > 10";
         $resultado= $this->db->query($consult);
         return $resultado;
     }
@@ -107,19 +107,12 @@ class Producto{
         $insertProduct = "INSERT INTO productos VALUES ({$this->getIdProducto()},'{$this->getNombre()}', '{$this->getDescription()}','{$this->getGramos()}','{$this->getContenido()}','{$this->getTipo()}','{$this->getPrecioproveedor()}','{$this->getPrecio()}', {$this->getStock()})";
 
         $insertEntered = "INSERT INTO entradas VALUES (NULL,{$this->getIdProducto()},'{$this->getFecha()}','{$this->getEntrada()}')";
-        
-        // $insertInv="INSERT INTO inventario(id_producto,stock) VALUES ({$this->getIdProducto()},'{$this->getEntrada()}')";
-        //  var_dump($insertInv);
-        //  var_dump($insertInv);
-        //  die();
+       
         $resultProduct = $this->db->query($insertProduct);
         $resultEntered = $this->db->query($insertEntered);
-        // $resultInv = $this->db->query($insertInv);
-
-        
+       
         return $resultProduct;
         return $resultEntered;
-        // return $resultInv;
        }
 
        /**para actualizar un producto */

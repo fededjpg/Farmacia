@@ -146,11 +146,6 @@ class Usuario{
             $consulta .= ", contraseña = '{$this->getContra()}'";
         }
         $consulta.= "WHERE id = {$this->getId()}";
-
-        
-        // var_dump($consulta);
-        // die();
-        
         $resultado=$this->db->query($consulta);
         return $resultado;
     }

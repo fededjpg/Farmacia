@@ -144,36 +144,14 @@ class Prueba{
         public function getBuscar(){
 
         $buscar = "SELECT * FROM productos WHERE nombre like '%{$this->getDescripcion()}%' OR gramos like '%{$this->getDescripcion()}%' OR descripcion like '%{$this->getDescripcion()}%' OR id_producto like '%{$this->getDescripcion()}%' OR tipo like '%{$this->getDescripcion()}%'";
-        // $buscar="SELECT i.id_inventario, p.id_producto, p.descripcion, 
-        // p.gramos, p.contenido, p.precio_publico,p.tipo, i.stock
-        // FROM inventario i 
-        // INNER JOIN productos p
-        // ON like p.descripcion = '%{$this->getDescripcion()}%' ORgramos like '%{$this->getDescripcion()}%'
-        // GROUP BY p.id_producto";
-
+       
                 $respuesta=$this->db->query($buscar);
 
                 return $respuesta;
         }
         public function inserta(){
-
-                // if($this->getDescripcion() == "prestamo"){
-                //         $insert="INSERT INTO prueba VALUES (NULL, {$this->getId_producto()}, '{$this->getDescripcion()}', '{$this->getGramos()}', '{$this->getContenido()}', '{$this->getTipo()}', {$this->getPrecio_publico()}, '{$this->getStock()}', {$this->getCantidad()}, {$this->getDescuento()}, '{$this->getTotal()}')";
-                //         // $insert="INSERT INTO prueba VALUES ( $this->getC )"
-                //         var_dump($insert);
-                //         // die();
-                      
-                                
-                //         $resultado = $this->db->query($insert);
-                //         }               
+        
                 $select="SELECT id_producto FROM prueba WHERE id_producto= {$this->getId_producto()}";
-
-               
-
-
-               
-                // $prestamo="SELECT descripcion FROM prueba WHERE descripcion='{$this->getDescripcion()}'";
-                // var_dump($prestamo);
 
                 
 
@@ -182,35 +160,15 @@ class Prueba{
                 
                         $update="UPDATE prueba SET cantidad = cantidad + {$this->getCantidad()}, total = precio_publico * cantidad WHERE id_producto = {$this->getId_producto()}";
                         $resultado1 = $this->db->query($update);
-                        //  var_dump($insert);
+                       
                 } 
                  else{ 
                         $insert="INSERT INTO prueba VALUES ({$this->getId()}, {$this->getId_producto()}, '{$this->getDescripcion()}', '{$this->getGramos()}', '{$this->getContenido()}', '{$this->getTipo()}', {$this->getPrecio_publico()}, '{$this->getStock()}', {$this->getCantidad()}, {$this->getDescuento()}, '{$this->getTotal()}', '{$this->getUsuario()}')";
-                        // var_dump($insert);
-                        // die();
+                       
                         $resultado = $this->db->query($insert);
-                      // var_dump($insert);
+                     
                          
                 }  
-                
-                // else if ($res_presta =! "prestamo"){
-                //         $insert="INSERT INTO prueba VALUES (NULL, {$this->getId_producto()}, '{$this->getDescripcion()}', '{$this->getGramos()}', '{$this->getContenido()}', '{$this->getTipo()}', {$this->getPrecio_publico()}, '{$this->getStock()}', {$this->getCantidad()}, {$this->getDescuento()}, '{$this->getTotal()}')";        
-                //         $resultado = $this->db->query($insert);
-                //       // var_dump($insert);
-                         
-                // }  
-                
-                // $res_presta = $this->db->query($prestamo);
-               
-
-                // if($res_presta == "prestamo"){
-                        
-                //         $insert="INSERT INTO prueba VALUES (NULL, {$this->getId_producto()}, '{$this->getDescripcion()}', '{$this->getGramos()}', '{$this->getContenido()}', '{$this->getTipo()}', {$this->getPrecio_publico()}, '{$this->getStock()}', {$this->getCantidad()} = ({$this->getCantidad()} * {$this->getPrecio_publico()}), {$this->getDescuento()}, '{$this->getTotal()}')";        
-                        
-                //         $resultado = $this->db->query($insert);
-
-
-                // }
 
                 return $resultado2;
                 return $resultado1;
@@ -225,11 +183,6 @@ class Prueba{
                 $respuesta= $this->db->query($mostrar);
                 return $respuesta;
                 
-                //FUNCIONA....
-                // $mostrar = "SELECT * FROM prueba";
-                // $respuesta= $this->db->query($mostrar);
-
-                // return $respuesta;
         }
 
         public function deleteProduct(){
@@ -255,15 +208,9 @@ class Prueba{
                 $respuesta2=$this->db->query($sql1);
                
                 $respuesta3=$this->db->query($sql2);
-
-               
-                // return $respuesta2;
+  
                 return $respuesta;
-
-                // return $respuesta2;
                 return $respuesta2;
-
-                 // return $respuesta2;
                  return $respuesta3;
 
         }

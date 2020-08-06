@@ -23,7 +23,7 @@ if($_SESSION['userRol'] != 'admin'){
                     <div class="card-body">
                         <form action="<?=base_url?>registro/actualizarProducto" method="post">
                             <div class="form-group row">
-                                <!-- <label for="" class="col-md-3 text-md-right col-form-label">Clave:</label> -->
+                               
                                 <div class="col-md-6">
                                     <input type="hidden" name="id_producto" value="<?= $producto->id_producto ?>" class="form-control">
                                 </div>

@@ -57,7 +57,7 @@ body#contacto ul.menu li:nth-child(4) a {
   height: 300px;
 }
 .general{
-  height: 81vh;
+  height: 90vh;
 }
 .navbar-collapse{
   color: #fff;
@@ -185,17 +185,6 @@ margin-top:28%;
       margin-left:100px;
     } 
 }
-/* .fixed-bar-icon-2 .mov-1{
-  margin-top: 80px;
-  margin-left: 90px;
-  text-align: center;
-  
-}
-.fixed-bar-icon-2 .ro-2{
-  padding-left: 90px;
-  margin-top: 30px;
-  margin-left:100px;
-} */
 
 
 .fixed-bar-icon-2 a{

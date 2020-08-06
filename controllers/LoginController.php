@@ -22,24 +22,18 @@ class LoginController
 
         while ($fila = $script->fetch_assoc()) {
 
-            // $dateUser = array(
-            //     'userRol'       => $_SESSION['userRol'] = $fila['rol'],
-            //     'user'          => $_SESSION['user'] = $fila['usuario'],
-            //     'userName'      =>   $_SESSION['userName'] = $fila['nombre'],
-            //     'userLastName'  => $_SESSION['userLastName'] = $fila['apellido']
-            // );
+           
                 $_SESSION['userRol'] = $fila['rol'];
                 $_SESSION['user'] = $fila['usuario'];
                 $_SESSION['userName'] = $fila['nombre'];
                 $_SESSION['userLastName'] = $fila['apellido'];
 
-            // echo $fila['contraseña'];
+            
             if (password_verify($usuario->getContra(), $fila['contraseña'])) {
                 $contador++;
             }
         }
         if ($contador > 0) {
-            // $dateUser;
             $_SESSION['user'];
             $_SESSION['userRol'];
             $_SESSION['userName'];

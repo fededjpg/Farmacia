@@ -64,46 +64,6 @@ if($_SESSION['userRol'] != 'admin'){
                                 </div>
                             </div>
 
-                            <!-- <div class="form-group row">
-                                <label for="" class="col-md-3 text-md-right col-form-label">Producto:</label>
-                                <div class="col-md-6">
-                                    <input type="text" name="" value="0" class="form-control" placeholder="" aria-describedby="helpId">
-                                </div>
-                            </div>
-                            <div class="form-group row">
-                                <label for="" class="col-md-3 text-md-right col-form-label">Gramos:</label>
-                                <div class="col-md-6">
-                                    <input type="text" name="" value="0"class="form-control" placeholder="" aria-describedby="helpId">
-                                </div>
-                            </div>
-                            <div class="form-group row">
-                                <label for="" class="col-md-3 text-md-right col-form-label">Contenido:</label>
-                                <div class="col-md-6">
-                                    <input type="text" name="" value="0"class="form-control" placeholder="" aria-describedby="helpId">
-                                </div>
-                            </div>
-
-                            <div class="form-group row">
-                                <label for="" class="col-md-3 text-md-right col-form-label">Tipo:</label>
-                                <div class="col-md-6">
-                                    <input type="text" name="" value="0"class="form-control" placeholder="" aria-describedby="helpId">
-                                </div>
-                            </div> -->
-<!-- 
-                            <div class="form-group row">
-                                <label for="" class="col-md-3 text-md-right col-form-label">Fecha:</label>
-                                <div class="col-md-6">
-                                    <input type="text" name="fecha" value="<>"class="form-control" placeholder="" aria-describedby="helpId">
-                                </div>
-                            </div>
-
-                            <div class="form-group row">
-                                <label for="" class="col-md-3 text-md-right col-form-label">Entradas:</label>
-                                <div class="col-md-6">
-                                    <input type="text" name="entradas" value="0"class="form-control" placeholder="" aria-describedby="helpId">
-                                </div>
-                            </div> -->
-
                             <div class="form-group col">
                                 <div class="text-md-center">
                                 <a class="btn btn-outline-secondary" data-dismiss="modal" href="<?=base_url?>entrada/index">Cancelar</a>

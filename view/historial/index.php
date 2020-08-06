@@ -15,13 +15,11 @@ if($_SESSION['userRol'] != 'admin'){
 
 <h1 class="text-center">Historial</h1>
 <div class="container mt-2">
-    <!-- <form action="<?=base_url?>historial/corte" method="post"> -->
      <input type="date" id="fechas" name="fechas">
      <input type="date" id="fechass" name="fechass">
 
      <input type="text" placeholder="Usuario" id="corteUsuario" name="corteUsuario">
         <button class="btn btn-success" id="corte"> Corte <i class="fas fa-money-bill-wave"></i></button>
-    <!-- </form> -->
         <input type="text" disabled value="<?="Corte total ".$_SESSION['total']?>" >
         <p id="totaleshion"></p>
 </div>

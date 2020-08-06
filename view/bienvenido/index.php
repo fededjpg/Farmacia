@@ -61,64 +61,6 @@ if($_SESSION['userRol'] != 'admin'){
            
 		</section>
 	</div>
-<!-- <section class="fixed-bar">
-<div class="container">
-    <div class="fixed-bar-icon-2 mt-5">
-<div class="row mov-1">
-    <div class="col">
-        <a href="">
-          Cobrar <i class="fas fa-cash-register"></i>
-        </a>
-    </div>
-    <div class="col">
-        <a href="">
-            Historial<i class="fas fa-history"></i>
-        </a> 
-    </div>
-        <div class="col">
-            <a href="entrada/index">
-                Entradas <i class="fas fa-person-booth"></i>
-            </a>
-    </div>
-   </div>
-   <div class="row ro-2">
-        <div class="col com-2">
-            <a href="inventario/index">
-                Inventario<i class="fas fa-boxes"></i>
-            </a>
-        </div>
-        <div class="col com">
-            <a href="registro/index">
-                Registro <i class="fab fa-product-hunt"></i>
-            </a>
-        </div>
-        </div>
-    </div>
-</div>
-</section> -->
-
-<!-- <section class="fixed-bar">
-        <h1 class="display-4 text-center mt-5">FARMACIA</h1>
-        <div class="container">
-            <div class="fixed-bar-icon mt-5">
-                <a href="">
-                   Cobrar <i class="fas fa-cash-register"></i>
-                </a>
-                <a href="">
-                Historial<i class="fas fa-history"></i>
-                </a> 	
-                <a href="<?=base_url?>entrada/index">
-                   Entradas <i class="fas fa-person-booth"></i>
-                </a>
-                <a href="<?=base_url?>inventario/index">
-                   Inventario<i class="fas fa-boxes"></i>
-                </a>
-                <a href="<?=base_url?>registro/index">
-                    Registro <i class="fab fa-product-hunt"></i>
-                </a>
-            </div>                   
-        </div>
-    </section> -->
     
 
 </body>

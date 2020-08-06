@@ -22,7 +22,7 @@ class UsuarioController{
         $apellido=$_POST['apellido'];
         $fecha=$_POST['fechaNac'];
         $telefono=$_POST['telefono'];
-        // $contra=$_POST['contra'];
+        
         $passwd=password_hash($_POST['contra'], PASSWORD_DEFAULT, ['cost' => 15]);
 
         $user->setUsuario($usuario);
@@ -44,7 +44,6 @@ class UsuarioController{
         $apellido=$_POST['apellido'];
         $fecha=$_POST['fechaNac'];
         $telefono=$_POST['telefono'];
-        // $contra=$_POST['contra'];
         $passwd=password_hash($_POST['contra'], PASSWORD_DEFAULT, ['cost' => 15]);
 
         $user->setUsuario($usuario);
